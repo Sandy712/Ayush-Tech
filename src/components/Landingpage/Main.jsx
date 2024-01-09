@@ -28,6 +28,15 @@ export default function Main() {
         </div>
         <div className="row">
           <div className="col-md-6">
+            <div className="image">
+              <img
+                src="/img/fin1.png"
+                alt="find investor"
+                className="find-img img-fluid"
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
             <div className="content">
               <h1 className="title">Find Your Next Investment</h1>
               <p className="desc">
@@ -35,15 +44,6 @@ export default function Main() {
                 where to invest.
               </p>
               <button>Click</button>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="image">
-              <img
-                src="/img/fin1.png"
-                alt="find investor"
-                className="find-img img-fluid"
-              />
             </div>
           </div>
         </div>
@@ -70,6 +70,15 @@ export default function Main() {
         </div>
         <div className="row">
           <div className="col-md-6">
+            <div className="image">
+              <img
+                src="/img/fin1.png"
+                alt="find investor"
+                className="find-img img-fluid"
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
             <div className="content">
               <h1 className="title">Find Your Next Investment</h1>
               <p className="desc">
@@ -79,17 +88,7 @@ export default function Main() {
               <button>Click</button>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="image">
-              <img
-                src="/img/fin1.png"
-                alt="find investor"
-                className="find-img img-fluid"
-              />
-            </div>
-          </div>
         </div>
-         
       </div>
     </div>
   );
