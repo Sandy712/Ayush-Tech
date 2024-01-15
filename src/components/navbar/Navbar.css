@@ -1,0 +1,9 @@
+.custom-navbar{
+    height: 80px;
+}
+
+.custom-navbar a {
+    color: black; 
+    text-decoration: none; 
+    padding: 5px; 
+}
