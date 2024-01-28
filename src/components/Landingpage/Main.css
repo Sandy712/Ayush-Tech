@@ -1,44 +1,44 @@
-.container {
+.image-with-text-overlay {
     position: relative;
-    background-image: url('/public/img/pexels-daniel-dan-7708811.jpg');
-    height: 86vh;
-    max-width: 100vw;
-    background-size: cover;
-    background-position:center; 
-    background-repeat: no-repeat;
-}
-
-.title {
+    width: 100%;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: auto; /* Adjust according to the image aspect ratio */
+    display: block;
+  }
+  
+  .overlay-content {
     position: absolute;
-    top: 150px;
-    left: 300px;
-    transform: translate(-40%, -50%);
-    text-align: center;
-    background: linear-gradient(to bottom, #fafbff, #8ef4b2);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 45px;
-    font-weight: bold;
-}
-
-
-.but{
-    position: absolute;
-    top: 350px;
-    left: 200px;
-}
-
-.start{
-    padding: 5px;
-    margin: 10px;
-    border: 20px ;
-    color: #4CAF50;
-}
-
-.invest{
-    padding: 5px;
-    margin: 10px;
-    border: 20px ;
-    color: #4CAF50;
-}
+    top: 50%;
+    left: 10%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the background color and opacity */
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .overlay-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .overlay-content p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .overlay-content button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .overlay-content button:hover {
+    background-color: #0056b3;
+  }
