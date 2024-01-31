@@ -5,7 +5,7 @@
   
   .background-image {
     width: 100%;
-    height: auto; /* Adjust according to the image aspect ratio */
+    height: 50%; /* Adjust according to the image aspect ratio */
     display: block;
   }
   

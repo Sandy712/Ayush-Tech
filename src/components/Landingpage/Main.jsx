@@ -1,8 +1,21 @@
 import React from "react";
 import "./Main.css";
 import img from "../Landingpage/image/main-vector-removebg-preview.png";
+import { useSpring, animated,config} from '@react-spring/web';
+
 
 export default function Main() {
+  const imageSpring = useSpring({
+    from: { transform: 'translateY(0px) scale(1)' },
+    to: async next => {
+      while (true) {
+        await next({ transform: 'translateY(-17px) scale(1.05)' });
+        await next({ transform: 'translateY(0px) scale(1)' });
+      }
+    },
+    config: { tension: 3, friction: 0, easing: config.easeInOutCubic },
+  });
+
   return (
     <>
       <header class="bg-dark py-5">
