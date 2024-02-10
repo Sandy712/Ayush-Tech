@@ -1,20 +1,23 @@
 import React from "react";
 import "./Main.css";
 import img from "../Landingpage/image/main-vector-removebg-preview.png";
-import { useSpring, animated,config} from '@react-spring/web';
-
+import { useSpring, config } from "@react-spring/web";
+import { SiMusicbrainz } from "react-icons/si";
+import { FaNewspaper } from "react-icons/fa";
+import { HiUserGroup } from "react-icons/hi2";
+import { IoMdChatbubbles } from "react-icons/io";
 
 export default function Main() {
-  const imageSpring = useSpring({
-    from: { transform: 'translateY(0px) scale(1)' },
-    to: async next => {
-      while (true) {
-        await next({ transform: 'translateY(-17px) scale(1.05)' });
-        await next({ transform: 'translateY(0px) scale(1)' });
-      }
-    },
-    config: { tension: 3, friction: 0, easing: config.easeInOutCubic },
-  });
+  // const imageSpring = useSpring({
+  //   from: { transform: 'translateY(0px) scale(1)' },
+  //   to: async next => {
+  //     while (true) {
+  //       await next({ transform: 'translateY(-17px) scale(1.05)' });
+  //       await next({ transform: 'translateY(0px) scale(1)' });
+  //     }
+  //   },
+  //   config: { tension: 3, friction: 0, easing: config.easeInOutCubic },
+  // });
 
   return (
     <>
@@ -49,73 +52,93 @@ export default function Main() {
         </div>
       </header>
 
-      <div className="container">
-        <section className="section">
-          <div className="row">
-            <div className="col">
-              <div className=" w-auto">
-                <div className="card-body">
-                  <h5 className="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Excepturi aliquam atque provident, harum quae totam illum ad
-                    natus, delectus quis voluptatibus ducimus labore, doloribus
-                    qui sint non fugit facilis itaque libero autem nesciunt.
-                    Asperiores recusandae impedit soluta non minima maiores.
-                  </h5>
+      <div style={{ backgroundColor: "#97da79" }}>
+        <div className="container">
+          <section className="section">
+            <div className="row">
+              <div className="col">
+                <div className=" w-auto">
+                  <div className="card-body text-center">
+                    <h5 className="card-text">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Excepturi aliquam atque provident, harum quae totam illum
+                      ad natus, delectus quis voluptatibus ducimus labore,
+                      doloribus qui sint non fugit facilis itaque libero autem
+                      nesciunt. Asperiores recusandae impedit soluta non minima
+                      maiores.
+                    </h5>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
 
       <section class="py-5" id="features">
         <div class="container px-5 my-5">
           <div class="row gx-5">
             <div class="col-lg-4 mb-5 mb-lg-0">
-              <h2 class="fw-bolder mb-0">Ayush Portal</h2>
-            </div>
-            <br />
-            <div>
-              <h5>Features Text to be added</h5>
+              <h2 class="fw-bolder mb-0">Our objectives are as follows</h2>
             </div>
             <div class="col-lg-8">
               <div class="row gx-5 row-cols-1 row-cols-md-2">
                 <div class="col mb-5 h-100">
-                  <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-collection"></i>
+                  <div
+                    class="feature  text-dark rounded-3 mb-3"
+                    style={{ fontSize: "3.5rem" }}
+                  >
+                    <i>
+                      <SiMusicbrainz />
+                    </i>
                   </div>
-                  <h2 class="h5">Text to be added</h2>
+                  <h2 class="h5">Featured title</h2>
                   <p class="mb-0">
                     Paragraph of text beneath the heading to explain the
                     heading. Here is just a bit more text.
                   </p>
                 </div>
                 <div class="col mb-5 h-100">
-                  <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-building"></i>
+                  <div
+                    class="feature  text-dark rounded-3 mb-3"
+                    style={{ fontSize: "3.5rem" }}
+                  >
+                    <i>
+                      <FaNewspaper />
+                    </i>
                   </div>
-                  <h2 class="h5">Text to be added</h2>
+                  <h2 class="h5">Featured title</h2>
                   <p class="mb-0">
                     Paragraph of text beneath the heading to explain the
                     heading. Here is just a bit more text.
                   </p>
                 </div>
-                <div class="col mb-5 mb-md-0 h-100">
-                  <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-toggles2"></i>
+                <div class="col mb-5 h-100">
+                  <div
+                    class="feature  text-dark rounded-3 mb-3"
+                    style={{ fontSize: "3.5rem" }}
+                  >
+                    <i>
+                      <HiUserGroup />
+                    </i>
                   </div>
-                  <h2 class="h5">Text to be added</h2>
+                  <h2 class="h5">Featured title</h2>
                   <p class="mb-0">
                     Paragraph of text beneath the heading to explain the
                     heading. Here is just a bit more text.
                   </p>
                 </div>
-                <div class="col h-100">
-                  <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-toggles2"></i>
+                <div class="col mb-5 h-100">
+                  <div
+                    class="feature  text-dark rounded-3 mb-3"
+                    style={{ fontSize: "3.5rem" }}
+                  >
+                    <i>
+                      {" "}
+                      <IoMdChatbubbles />
+                    </i>
                   </div>
-                  <h2 class="h5">Text to be added</h2>
+                  <h2 class="h5">Featured title</h2>
                   <p class="mb-0">
                     Paragraph of text beneath the heading to explain the
                     heading. Here is just a bit more text.
@@ -127,54 +150,113 @@ export default function Main() {
         </div>
       </section>
 
-      <section id="facts" class="wow fadeInUp">
-        <div class="container">
-          <header class="section-header">
-            <h3>Facts</h3>
-          </header>
-
-          <div class="row counters">
-            <div class="col-lg-3 col-6 text-center">
-              <span data-toggle="counter-up">274</span>
-              <p>Clients</p>
-            </div>
-
-            <div class="col-lg-3 col-6 text-center">
-              <span data-toggle="counter-up">421</span>
-              <p>Projects</p>
-            </div>
-
-            <div class="col-lg-3 col-6 text-center">
-              <span data-toggle="counter-up">1,345</span>
-              <p>Hours Of Support</p>
-            </div>
-
-            <div class="col-lg-3 col-6 text-center">
-              <span data-toggle="counter-up">18</span>
-              <p>Hard Workers</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h1 className="display-4">
-                Get started on your Startup / Investor journey - the right way!
-              </h1>
-              <div className="mt-4"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-5">
+      <div class="py-5 bg-light">
         <div class="container px-5 my-5">
           <div class="row gx-5 justify-content-center">
-             
+            <div class="col-lg-10 col-xl-7">
+              <h1 class="text-center">Ayush Tech</h1>
+              <div class="text-center">
+                <div class="fs-4 mb-4 fst-italic">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Accusamus, laboriosam. Nihil quo laboriosam nostrum
+                  reprehenderit beatae facere tempore odit pariatur!
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div class="px-5 my-5">
+        <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
+          <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+            <div class="mb-4 mb-xl-0">
+              <div class="fs-3 fw-bold text-white">
+                New products, delivered to you.
+              </div>
+              <div class="text-white-50">
+                Sign up for our newsletter for the latest updates.
+              </div>
+            </div>
+            <div class="ms-xl-4">
+              <div class="input-group mb-2">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Email address..."
+                  aria-label="Email address..."
+                  aria-describedby="button-newsletter"
+                />
+                <button
+                  class="btn btn-outline-light"
+                  id="button-newsletter"
+                  type="button"
+                >
+                  Sign up
+                </button>
+              </div>
+              <div class="small text-white-50">
+                We care about privacy, and will never share your data.
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="content-section d-flex justify-content-center align-items-center">
+              <img
+                src="https://img.freepik.com/free-vector/startup-managers-presenting-analyzing-sales-growth-chart-group-workers-with-heap-cash-rocket-bar-diagrams-with-arrow-heap-money_74855-14166.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707523200&semt=sph"
+                class="img-fluid"
+                alt="Placeholder Image"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="content-section d-flex flex-column justify-content-center align-items-center">
+              <h1 class="text-center mb-4" >Go for the Startup</h1>
+              <p class="text-center mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                convallis libero quis fermentum tristique. Curabitur non
+                vestibulum justo.
+              </p>
+              <button class="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="content-section d-flex flex-column justify-content-center align-items-center">
+              <h1 class="text-center mb-4">Go for the Inverstor</h1>
+              <p class="text-center mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                convallis libero quis fermentum tristique. Curabitur non
+                vestibulum justo.
+              </p>
+              <button class="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="content-section d-flex justify-content-center align-items-center">
+              <img
+                src="https://img.freepik.com/free-vector/investor-with-laptop-monitoring-growth-dividends-trader-sitting-stack-money-investing-capital-analyzing-profit-graphs-vector-illustration-finance-stock-trading-investment_74855-8432.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707350400&semt=sph"
+                class="img-fluid"
+                alt="Placeholder Image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <section class="py-5">
+        <div class="container px-5 my-5">
+          <div class="row gx-5 justify-content-center"></div>
           <div className="container">
             <div className="row gx-5 justify-content-center">
               <div className="col-lg-4 mb-5">
@@ -264,90 +346,106 @@ export default function Main() {
               </div>
             </div>
           </div>
-
-          <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
-            <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-              <div class="mb-4 mb-xl-0">
-                <div class="fs-3 fw-bold text-white">
-                  New products, delivered to you.
-                </div>
-                <div class="text-white-50">
-                  Sign up for our newsletter for the latest updates.
-                </div>
-              </div>
-              <div class="ms-xl-4">
-                <div class="input-group mb-2">
-                  <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Email address..."
-                    aria-label="Email address..."
-                    aria-describedby="button-newsletter"
-                  />
-                  <button
-                    class="btn btn-outline-light"
-                    id="button-newsletter"
-                    type="button"
-                  >
-                    Sign up
-                  </button>
-                </div>
-                <div class="small text-white-50">
-                  We care about privacy, and will never share your data.
-                </div>
-              </div>
-            </div>
-          </aside>
         </div>
-      </section>
+      </section> */}
 
-      <footer className="bg-light py-5">
-      <div className="container">
+<footer className="bg-light py-5">
+    <div className="container">
         <div className="row">
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <a href="https://investorconnect.startupindia.gov.in" className="d-inline-block mb-4">
-              <img
-                src="https://investorconnect.startupindia.gov.in/wp-content/uploads/InvestorConnectLogoSVGSmall.svg"
-                alt="Investor Connect"
-                className="img-fluid"
-                width="150"
-              />
-            </a>
-            <p className="text-muted">Investor Connect is a platform that connects startups with investors.</p>
-          </div>
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <h5 className="mb-3">Quick Links</h5>
-            <ul className="list-unstyled mb-0">
-              <li><a href="https://investorconnect.startupindia.gov.in/privacy-policy/" className="text-muted">Privacy Policy</a></li>
-              <li><a href="https://investorconnect.startupindia.gov.in/terms-of-use/" className="text-muted">Terms of Use</a></li>
-              <li><a href="https://investorconnect.startupindia.gov.in/grievance/" className="text-muted">Grievance</a></li>
-              <li><a href="https://investorconnect.startupindia.gov.in/faqs/" className="text-muted">FAQs</a></li>
-              <li><a href="https://investorconnect.startupindia.gov.in/contact-us/" className="text-muted">Contact Us</a></li>
-            </ul>
-          </div>
-          <div className="col-lg-4">
-            <img
-              src="https://investorconnect.startupindia.gov.in/wp-content/uploads/Powered-by-Sidbi_Footer-150x39.png"
-              alt="Powered by SIDBI"
-              className="img-fluid mb-3"
-              width="150"
-            />
-            <ul className="list-inline mb-0">
-              <li className="list-inline-item me-3">
-                <a href="https://www.facebook.com/SIDBIOfficial/" target="_blank" className="text-muted">
-                  <i className="fab fa-facebook-square fa-lg"></i>
+            <div className="col-lg-4 mb-4 mb-lg-0">
+                <a
+                    href="https://investorconnect.startupindia.gov.in"
+                    className="d-inline-block mb-4"
+                >
+                    <img
+                        src="https://investorconnect.startupindia.gov.in/wp-content/uploads/InvestorConnectLogoSVGSmall.svg"
+                        alt="Investor Connect"
+                        className="img-fluid"
+                        width="150"
+                    />
                 </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="https://twitter.com/sidbiofficial?ref_src=twsrc%5Etfw" target="_blank" className="text-muted">
-                  <i className="fab fa-twitter-square fa-lg"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+                <p className="text-muted">
+                    Investor Connect is a platform that connects startups with
+                    investors.
+                </p>
+            </div>
+            <div className="col-lg-4 mb-4 mb-lg-0">
+                <h5 className="mb-3">Quick Links</h5>
+                <ul className="list-unstyled mb-0 d-inline">
+                    <li className="d-inline me-3">
+                        <a
+                            href="https://investorconnect.startupindia.gov.in/privacy-policy/"
+                            className="text-muted"
+                        >
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li className="d-inline me-3">
+                        <a
+                            href="https://investorconnect.startupindia.gov.in/terms-of-use/"
+                            className="text-muted"
+                        >
+                            Terms of Use
+                        </a>
+                    </li>
+                    <li className="d-inline me-3">
+                        <a
+                            href="https://investorconnect.startupindia.gov.in/grievance/"
+                            className="text-muted"
+                        >
+                            Grievance
+                        </a>
+                    </li>
+                    <li className="d-inline me-3">
+                        <a
+                            href="https://investorconnect.startupindia.gov.in/faqs/"
+                            className="text-muted"
+                        >
+                            FAQs
+                        </a>
+                    </li>
+                    <li className="d-inline">
+                        <a
+                            href="https://investorconnect.startupindia.gov.in/contact-us/"
+                            className="text-muted"
+                        >
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div className="col-lg-4">
+                <img
+                    src="https://investorconnect.startupindia.gov.in/wp-content/uploads/Powered-by-Sidbi_Footer-150x39.png"
+                    alt="Powered by SIDBI"
+                    className="img-fluid mb-3"
+                    width="150"
+                />
+                <ul className="list-inline mb-0">
+                    <li className="list-inline-item me-3">
+                        <a
+                            href="https://www.facebook.com/SIDBIOfficial/"
+                            target="_blank"
+                            className="text-muted"
+                        >
+                            <i className="fab fa-facebook-square fa-lg"></i>
+                        </a>
+                    </li>
+                    <li className="list-inline-item">
+                        <a
+                            href="https://twitter.com/sidbiofficial?ref_src=twsrc%5Etfw"
+                            target="_blank"
+                            className="text-muted"
+                        >
+                            <i className="fab fa-twitter-square fa-lg"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
+
     </>
   );
 }

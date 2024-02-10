@@ -42,3 +42,18 @@
   .overlay-content button:hover {
     background-color: #0056b3;
   }
+/* Style for the section container */
+/* Style for the section container */
+.icon-content-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container {
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.content-container {
+  flex: 1; /* The content container will take up remaining space */
+}
+
