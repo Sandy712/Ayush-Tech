@@ -172,7 +172,7 @@ export default function Main() {
           <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
             <div class="mb-4 mb-xl-0">
               <div class="fs-3 fw-bold text-white">
-                New products, delivered to you.
+                Newsletter
               </div>
               <div class="text-white-50">
                 Sign up for our newsletter for the latest updates.
@@ -192,7 +192,7 @@ export default function Main() {
                   id="button-newsletter"
                   type="button"
                 >
-                  Sign up
+                  Sbscribe
                 </button>
               </div>
               <div class="small text-white-50">
@@ -349,101 +349,80 @@ export default function Main() {
         </div>
       </section> */}
 
-<footer className="bg-light py-5">
-    <div className="container">
-        <div className="row">
-            <div className="col-lg-4 mb-4 mb-lg-0">
-                <a
-                    href="https://investorconnect.startupindia.gov.in"
-                    className="d-inline-block mb-4"
-                >
-                    <img
-                        src="https://investorconnect.startupindia.gov.in/wp-content/uploads/InvestorConnectLogoSVGSmall.svg"
-                        alt="Investor Connect"
-                        className="img-fluid"
-                        width="150"
-                    />
-                </a>
-                <p className="text-muted">
-                    Investor Connect is a platform that connects startups with
-                    investors.
-                </p>
-            </div>
-            <div className="col-lg-4 mb-4 mb-lg-0">
-                <h5 className="mb-3">Quick Links</h5>
-                <ul className="list-unstyled mb-0 d-inline">
-                    <li className="d-inline me-3">
-                        <a
-                            href="https://investorconnect.startupindia.gov.in/privacy-policy/"
-                            className="text-muted"
-                        >
-                            Privacy Policy
-                        </a>
-                    </li>
-                    <li className="d-inline me-3">
-                        <a
-                            href="https://investorconnect.startupindia.gov.in/terms-of-use/"
-                            className="text-muted"
-                        >
-                            Terms of Use
-                        </a>
-                    </li>
-                    <li className="d-inline me-3">
-                        <a
-                            href="https://investorconnect.startupindia.gov.in/grievance/"
-                            className="text-muted"
-                        >
-                            Grievance
-                        </a>
-                    </li>
-                    <li className="d-inline me-3">
-                        <a
-                            href="https://investorconnect.startupindia.gov.in/faqs/"
-                            className="text-muted"
-                        >
-                            FAQs
-                        </a>
-                    </li>
-                    <li className="d-inline">
-                        <a
-                            href="https://investorconnect.startupindia.gov.in/contact-us/"
-                            className="text-muted"
-                        >
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div className="col-lg-4">
-                <img
-                    src="https://investorconnect.startupindia.gov.in/wp-content/uploads/Powered-by-Sidbi_Footer-150x39.png"
-                    alt="Powered by SIDBI"
-                    className="img-fluid mb-3"
-                    width="150"
-                />
-                <ul className="list-inline mb-0">
-                    <li className="list-inline-item me-3">
-                        <a
-                            href="https://www.facebook.com/SIDBIOfficial/"
-                            target="_blank"
-                            className="text-muted"
-                        >
-                            <i className="fab fa-facebook-square fa-lg"></i>
-                        </a>
-                    </li>
-                    <li className="list-inline-item">
-                        <a
-                            href="https://twitter.com/sidbiofficial?ref_src=twsrc%5Etfw"
-                            target="_blank"
-                            className="text-muted"
-                        >
-                            <i className="fab fa-twitter-square fa-lg"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+ <footer class="footer">
+
+   <div class="bg-light py-3 py-md-5 py-xl-8 border-top border-light-subtle">
+    <div class="container overflow-hidden">
+      <div class="row gy-3 gy-md-5 gy-xl-0 align-items-sm-center">
+        <div class="col-xs-12 col-sm-6 col-xl-3 order-0 order-xl-0">
+          <div class="footer-logo-wrapper text-center text-sm-start">
+            <a href="#!">
+              <h1>Ayush Logo</h1> 
+            </a>
+          </div>
         </div>
+
+        <div class="col-xs-12 col-xl-6 order-2 order-xl-1">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link link-secondary px-2 px-md-3" href="#!">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-secondary px-2 px-md-3" href="#!">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-secondary px-2 px-md-3" href="#!">Advertise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-secondary px-2 px-md-3" href="#!">Terms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-secondary px-2 px-md-3" href="#!">Privacy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-xl-3 order-1 order-xl-2">
+          <ul class="nav justify-content-center justify-content-sm-end">
+            <li class="nav-item">
+              <a class="nav-link link-dark px-3" href="#!">
+                 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-dark px-3" href="#!">
+                 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-dark px-3" href="#!">
+                 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-dark px-3" href="#!">
+                 
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+
+   <div class="bg-light py-3 py-md-5 border-top border-light-subtle">
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col">
+          <div class="footer-copyright-wrapper text-center">
+            &copy; 2024. All Rights Reserved. <a href="index.html"><span className="text-primary">Ayush-Tech</span></a> 
+          </div>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+
 </footer>
 
     </>
