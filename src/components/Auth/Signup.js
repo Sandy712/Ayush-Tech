@@ -12,7 +12,7 @@ const Signup = () => {
 
 
     const handleInputChange = (e) => {
-        const { name, value, choice } = e.target;
+        const { name, value } = e.target;
         if (name === 'email') {
             setEmail(value);
 
@@ -21,8 +21,8 @@ const Signup = () => {
         } else if (name === 'password') {
             setPassword(value);
         }
-        else if (choice === "role") {
-            setRole(choice);
+        else if (name === "role") {
+            setRole(name);
         }
     };
 
@@ -53,7 +53,6 @@ const Signup = () => {
                         required
                         placeholder='Enter Your Email'
                         className='inp'
-                        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                     />
                     <div className="error-message text-danger">{emailError}</div>
                 </div>
