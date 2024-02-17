@@ -19,17 +19,19 @@ const NewsComponent = () => {
 
     return (
         <div>
-            
 
             <div className="container mt-5">
+                <h1 style={{padding:"5px"}}>Business Guide</h1>
                 <div className="row" id="newsRow">
                     {articles.map((article, index) => (
-                        <div className="col-md-4" key={index}>
+                        <div className="col-md-4 mb-3" key={index}>
                             <div className="card news-card">
-                                <img src={article.urlToImage} className="card-img-top" alt="..." />
+                                <img src={article.urlToImage} className="card-img-top" alt="load..." style={{ width: '100%', height: '220px', objectFit: 'cover' }}/>
                                 <div className="card-body">
-                                    <h5 className="card-title">{article.title}</h5>
-                                    <p className="card-text">{article.description}</p>
+                                    <h5 className="card-title">{article.title.length > 30 ? `${article.title.substring(0, 35)}...` : article.title}</h5>
+                                    <p className="card-text">
+                                        {article && article.description && article.description.length > 40 ? `${article.description.slice(0, 50)}...` : article.description}
+                                    </p>
                                     <a href={article.url} className="btn btn-primary" target="_blank" rel="noreferrer">Read more</a>
                                 </div>
                             </div>

@@ -24,6 +24,7 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        console.log(localStorage.getItem('users'));
 
         // Find the user in the stored signup data based on the email
         const user = usersData.find((user) => user.email === email);
@@ -39,8 +40,8 @@ const Login = () => {
         }
 
         // If email and password match, set the user as logged in
-        setLoggedIn(true);
         setcurrent_user(user.role);
+        setLoggedIn(true);
 
         navigate('/');
     };
@@ -66,7 +67,6 @@ const Login = () => {
                             onChange={handleInputChange}
                             required
                             placeholder="Enter Your Email"
-                            pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                         />
                     </div>
                     <div className="input-group">

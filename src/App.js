@@ -1,12 +1,13 @@
 import './App.css';
 import Main from './components/Landingpage/Main';
 import NewsComponent from './components/Resources/News';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import Navbar from './components/navbar/Navbar';
 import ContactUs from './components/ContactUs/ContactUs';
 import { createContext, useEffect, useState } from 'react';
+import FandQ from './components/Fquestion/FandQ';
 
 
 export const DataContainer = createContext();
@@ -35,24 +36,15 @@ function App() {
       }}>
 
       <div>
-        <Router>
-          <Navbar current_user={current_user} />
-          <Routes>
-            <Route exact path='/' element={<Main />} />
-          </Routes>
-          <Routes>
-            <Route path='/login' element={<Login />} />
-          </Routes>
-          <Routes>
-            <Route path='/signup' element={<Signup />} />
-          </Routes>
-          <Routes>
-            <Route path="/News" element={<NewsComponent />} />
-          </Routes>
-          <Routes>
-            <Route path="/Contact-Us" element={<ContactUs />} />
-          </Routes>
-        </Router>
+        <Navbar current_user={current_user} />
+        <Routes>
+          <Route exact path='/' element={<Main />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path="/News" element={<NewsComponent />} />
+          <Route path="/Contact-Us" element={<ContactUs />} />
+          <Route path='/FandQ' element={<FandQ />} />
+        </Routes>
       </div>
 
     </DataContainer.Provider>
