@@ -7,6 +7,8 @@ import Signup from './components/Auth/Signup';
 import Navbar from './components/navbar/Navbar';
 import ContactUs from './components/ContactUs/ContactUs';
 import { createContext, useEffect, useState } from 'react';
+import Startup from './components/Startup/Startup';
+import Investor from './components/Investor/Investor';
 
 
 export const DataContainer = createContext();
@@ -39,6 +41,12 @@ function App() {
           <Navbar current_user={current_user} />
           <Routes>
             <Route exact path='/' element={<Main />} />
+          </Routes>
+          <Routes>
+            <Route exact path='/startup' element={<Startup/>} />
+          </Routes>
+          <Routes>
+            <Route exact path='/investor' element={<Investor/>} />
           </Routes>
           <Routes>
             <Route path='/login' element={<Login />} />

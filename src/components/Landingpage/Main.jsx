@@ -6,6 +6,7 @@ import { SiMusicbrainz } from "react-icons/si";
 import { FaNewspaper } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi2";
 import { IoMdChatbubbles } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function Main() {
   // const imageSpring = useSpring({
@@ -33,15 +34,15 @@ export default function Main() {
                   Startup India Platform
                 </h1>
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                  <a
+                  <Link
                     class="btn btn-primary btn-lg px-4 me-sm-3"
-                    href="#features"
+                    to="/startup"
                   >
                     For Investor
-                  </a>
-                  <a class="btn btn-outline-light btn-lg px-4" href="#!">
+                  </Link>
+                  <Link class="btn btn-outline-light btn-lg px-4" to="/investor">
                     For Startup
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -14,12 +14,12 @@ export default function Navbar({ current_user }) {
                         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                         {
                             current_user === 'startup' ?
-                                <li className="nav-item"><a className="nav-link" href="about.html">Startup</a></li>
+                                <li className="nav-item"><Link className="/investor" to="">Investor</Link></li>
                                 : <></>
                         }
                         {
                             current_user === 'investor' ?
-                                <li className="nav-item"><a className="nav-link" href="contact.html">Investor</a></li>
+                                <li className="nav-item"><Link className="nav-link" to="/startup">Startup</Link></li>
                                 : <></>
                         }
                         {
