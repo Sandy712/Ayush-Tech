@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.css";
 import img from "../Landingpage/image/main-vector-removebg-preview.png";
-import { useSpring, config } from "@react-spring/web";
+// import { useSpring, config } from "@react-spring/web";
 import { SiMusicbrainz } from "react-icons/si";
 import { FaNewspaper } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi2";
@@ -33,14 +33,14 @@ export default function Main() {
                 <h1 className=" display-5 lead fw-normal text-white-50 mb-4">
                   Startup India Platform
                 </h1>
-                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                   <Link
-                    class="btn btn-primary btn-lg px-4 me-sm-3"
+                    className="btn btn-primary btn-lg px-4 me-sm-3"
                     to="/startup"
                   >
                     For Investor
                   </Link>
-                  <Link class="btn btn-outline-light btn-lg px-4" to="/investor">
+                  <Link className="btn btn-outline-light btn-lg px-4" to="/investor">
                     For Startup
                   </Link>
                 </div>
