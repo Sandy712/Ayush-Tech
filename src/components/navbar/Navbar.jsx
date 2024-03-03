@@ -23,7 +23,7 @@ export default function Navbar({ current_user }) {
                                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                                         <li><Link className="dropdown-item" to="/News"> News </Link></li>
                                         <li><Link className="dropdown-item" to="/Contact-Us">Connect Us</Link></li>
-                                        <li><a className="dropdown-item" href="blog-post.html">FAQs</a></li>
+                                        <li><Link className="dropdown-item" to="/F&A">FAQs</Link></li>
                                     </ul>
                                 </li>
                                 : <></>

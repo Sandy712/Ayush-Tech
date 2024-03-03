@@ -1,18 +1,77 @@
 import React, { useState, } from "react";
 import "./Registerstyle.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { v4 as uuid } from "uuid";
+import { app, storage } from "../../Firebase";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { ref, uploadString, getDownloadURL } from "firebase/storage";
 
 
-function RegisterForm({ savestartup }) {
+function RegisterForm() {
   const [input, setInput] = useState("");
   const [logo, setLogo] = useState(null);
   const [rev, setrev] = useState("");
   const [launch, setlaunch] = useState("");
   const [date, setdate] = useState("");
 
+
+  const savestartup = async () => {
+    const db = getFirestore(app);
+    if (!logo) {
+      console.log("Please select a logo");
+      return;
+    }
+    
+    const storageRef = ref(storage, `storage_logo/${uuid()}_${logo.name}`);
+
+    try {
+      const dataURL = await convertFileToDataURL(logo);
+
+
+      console.log('Starting file upload...');
+      await uploadString(storageRef, dataURL, 'data_url');
+      console.log('File upload successful.');
+
+      const logoUrl = await getDownloadURL(storageRef);
+      console.log('Download URL retrieved:', logoUrl);
+
+
+      const docRef = await addDoc(collection(db, "Startups_items"), {
+        id: uuid(),
+        Company_Name: input,
+        Company_Logo: logoUrl,
+        Company_Revenue: rev,
+        Company_Launch: launch,
+        Company_Details: date,
+      });
+
+      console.log("Startup added with ID: ", docRef.id);
+    } catch (e) {
+      console.error("An error occurred:", e);
+    }
+  };
+
+  const convertFileToDataURL = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+
+      reader.onerror = (error) => {
+        reject(error);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  };
+
   const handleLogochange = (e) => {
     const file = e.target.files[0];
-    setLogo(file);
+    if (file) {
+      setLogo(file);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -21,7 +80,7 @@ function RegisterForm({ savestartup }) {
       console.log("Please select a logo");
       return;
     }
-    savestartup(input, logo, rev, launch, date);
+    savestartup();
     setInput("");
     setLogo(null);
     setrev("");

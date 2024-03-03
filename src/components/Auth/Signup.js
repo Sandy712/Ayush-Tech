@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "./Signup.css";
-import { NavLink,Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./Login.css"
- 
+
 
 
 const Signup = () => {
@@ -30,35 +30,28 @@ const Signup = () => {
     };
 
     const handleSignup = () => {
-        if (email == '') {
-             document.getElementById('Erroremail').innerHTML='Please Enter Your Email'
+        if (email === '') {
+            document.getElementById(emailError).innerHTML = 'Please Enter Your Email'
         }
-        else{
-            document.getElementById('Erroremail')
+        else {
+            document.getElementById(emailError);
         }
-         
-         
-        if (password == '') {
-            document.getElementById('Passwordeorrr').innerHTML='Please Create Password'
+
+
+        if (password === '') {
+            document.getElementById('Passwordeorrr').innerHTML = 'Please Create Password'
         }
-        else{
+        else {
 
         }
-         
-        if(role=='',password == '',email == ''){
-            document.getElementById('Typeerror').innerHTML='Please Select User Role'
+
+        if (role === '' || password === '' || email === '') {
+            document.getElementById('Typeerror').innerHTML = 'Please Select User Role'
         }
-        else{
-            
+        else {
             Navigate('/login');
-            
         }
 
-
-    
-        
-
-        
 
         const userData = { email, password, role };
         const usersData = JSON.parse(localStorage.getItem('users')) || [];
@@ -110,9 +103,9 @@ const Signup = () => {
                     <div className="error-message text-danger" id='Typeerror'></div>
                 </div>
                 <button onClick={handleSignup} className="btn btn-primary">Sign up</button>
-                <span><div className='mt-2' >Have an Account: <span className='btn btn-primary'><Link className='text-white' style={{textDecoration:'none'}} to='/login'>SignIn</Link></span> </div></span>  
+                <span><div className='mt-2' >Have an Account: <span className='btn btn-primary'><Link className='text-white' style={{ textDecoration: 'none' }} to='/login'>SignIn</Link></span> </div></span>
             </div>
-            
+
         </div>
     );
 };

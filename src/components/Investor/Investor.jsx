@@ -1,7 +1,29 @@
-import React from 'react'
-import StartupData from './StartupData';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { firestore } from "../../Firebase";
+import { collection, getDocs } from 'firebase/firestore';
 
 function Investor() {
+  const [initial, setinitial] = useState([]);
+
+  const GetInvestor = async () => {
+    try {
+      const querySnapshot = await getDocs(
+        collection(firestore, "Investors_details")
+      );
+
+      const invest_Data = querySnapshot.docs.map((doc) => doc.data());
+      setinitial(invest_Data);
+    }
+    catch (error) {
+      console.error("Error getting investor Data", error);
+    }
+  }
+
+  useEffect(() => {
+    GetInvestor();
+  }, []);
+
   return (
     <div>
       <header class="bg-dark text-white py-3">
@@ -18,17 +40,17 @@ function Investor() {
             </button>
             <ul class="dropdown-menu" aria-labelledby="filterDropdown">
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="/">
                   Option 1
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="/">
                   Option 2
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="/">
                   Option 3
                 </a>
               </li>
@@ -36,36 +58,38 @@ function Investor() {
           </div>
 
           <button class="btn btn-primary" title="Register as a Startup">
-            <i class="fas fa-plus"></i> Register
-            
+            <Link to="/InvestorForm" style={{ color: "white" }}>
+              <i class="fas fa-plus"></i> Register
+            </Link>
+
           </button>
 
-          <a href="#" class="text-decoration-none text-white ms-3">
+          <a href="/" class="text-decoration-none text-white ms-3">
             <i class="fas fa-bell"></i>
           </a>
         </div>
       </header>
 
       <div className="container mt-5">
-    <div className="row">
-        <h1>Top Investors</h1>
-        {StartupData.map((Startup, index) => (
+        <div className="row">
+          <h1>Top Investors</h1>
+          {initial.map((Startup, index) => (
             <div key={index} className="col-md-4 mb-4">
-                <div className="card">
-                    {/* Image tag here */}
-                    <img src={Startup.imageSrc} className="card-img-top" alt={Startup.companyName} />
-                    <div className="card-body">
-                        <h5 className="card-title">{Startup.companyName}</h5>
-                        <p className="card-text">Revenue: {Startup.revenue}</p>
-                        <p className="card-text">Establishment: {Startup.establishment}</p>
-                        <p className="card-text">{Startup.otherDetails}</p>
-                        <button className="btn btn-primary">+</button>
-                    </div>
+              <div className="card">
+                {/* Image tag here */}
+                <img src={Startup.PhotoURL} className="card-img-top" alt={Startup.Name} />
+                <div className="card-body">
+                  <h5 className="card-title">{Startup.Name}</h5>
+                  <p className="card-text">Investor Type: {Startup.InvestmentType}</p>
+                  <p className="card-text">Total Investment: {Startup.InvestmentAmount}</p>
+                  <p className="card-text">Email:{Startup.Contact}</p>
+                  <button className="btn btn-primary">+</button>
                 </div>
+              </div>
             </div>
-        ))}
-    </div>
-</div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

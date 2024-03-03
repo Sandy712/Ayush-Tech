@@ -58,7 +58,7 @@ function Startup() {
 
           <button class="btn btn-primary" title="Register as a Startup">
             <i class="fas fa-plus"></i>
-            <Link to="/RegisterForm-startup" style={{ color: "black" }}>
+            <Link to="/StartupForm" style={{ color: "black" }}>
               Register
             </Link>
           </button>
