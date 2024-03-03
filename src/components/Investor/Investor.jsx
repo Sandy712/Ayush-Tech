@@ -26,11 +26,11 @@ function Investor() {
 
   return (
     <div>
-      <header class="bg-dark text-white py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-          <div class="dropdown">
+      <header className="bg-dark text-white py-3">
+        <div className="container d-flex justify-content-between align-items-center">
+          <div className="dropdown">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              className="btn btn-secondary dropdown-toggle"
               type="button"
               id="filterDropdown"
               data-bs-toggle="dropdown"
@@ -38,34 +38,34 @@ function Investor() {
             >
               Filter
             </button>
-            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+            <ul className="dropdown-menu" aria-labelledby="filterDropdown">
               <li>
-                <a class="dropdown-item" href="/">
+                <a className="dropdown-item" href="/">
                   Option 1
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="/">
+                <a className="dropdown-item" href="/">
                   Option 2
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="/">
+                <a className="dropdown-item" href="/">
                   Option 3
                 </a>
               </li>
             </ul>
           </div>
 
-          <button class="btn btn-primary" title="Register as a Startup">
+          <button className="btn btn-primary" title="Register as a Startup">
             <Link to="/InvestorForm" style={{ color: "white" }}>
-              <i class="fas fa-plus"></i> Register
+              <i className="fas fa-plus"></i> Register
             </Link>
 
           </button>
 
-          <a href="/" class="text-decoration-none text-white ms-3">
-            <i class="fas fa-bell"></i>
+          <a href="/" className="text-decoration-none text-white ms-3">
+            <i className="fas fa-bell"></i>
           </a>
         </div>
       </header>
