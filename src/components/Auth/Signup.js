@@ -10,7 +10,7 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState(''); // State for selected role
-    const [emailError, setEmailError] = useState('');
+ 
     const Navigate = useNavigate();
 
 
@@ -19,8 +19,7 @@ const Signup = () => {
         if (name === 'email') {
             setEmail(value);
 
-            const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            setEmailError(emailRegex.test(value) ? '' : 'Invalid email format');
+             
         } else if (name === 'password') {
             setPassword(value);
         }
@@ -31,33 +30,33 @@ const Signup = () => {
 
     const handleSignup = () => {
         if (email === '') {
-            document.getElementById(emailError).innerHTML = 'Please Enter Your Email'
+            // setEmailError('Please Enter Your Email');
+            document.getElementById('Erroremail').innerHTML='Please Enter Your Email'
+            return 
+              // Exit early to prevent further execution
         }
-        else {
-            document.getElementById(emailError);
-        }
-
-
+    
         if (password === '') {
-            document.getElementById('Passwordeorrr').innerHTML = 'Please Create Password'
+            // setPasswordError('Please Create Password');
+            document.getElementById('Passwordeorrr').innerHTML='Please Enter Your Password'
+           return
         }
-        else {
-
+    
+        if (role === '') {
+            // setRoleError('Please Select User Role');
+            document.getElementById('Typeerror').innerHTML='Please Select Type'
+            return
         }
-
-        if (role === '' || password === '' || email === '') {
-            document.getElementById('Typeerror').innerHTML = 'Please Select User Role'
-        }
-        else {
-            Navigate('/login');
-        }
-
-
+         
+    
+        // If all validations pass, proceed with signup
+        Navigate('/login');
+    
         const userData = { email, password, role };
         const usersData = JSON.parse(localStorage.getItem('users')) || [];
         usersData.push(userData);
-
-        localStorage.setItem('users', JSON.stringify(usersData));
+    
+     
     };
 
     return (
@@ -74,9 +73,9 @@ const Signup = () => {
                         onChange={handleInputChange}
                         required
                         placeholder='Enter Your Email'
-                        className='form-control'
+                        className='form-control'    
                     />
-                    <div className="error-message text-danger" id='Erroremail'></div>
+                    <div className="error-message text-danger small" id='Erroremail'></div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className='form-label'>Password:</label>
@@ -90,7 +89,7 @@ const Signup = () => {
                         placeholder='Enter Your Password'
                         className='form-control'
                     />
-                    <div className="error-message text-danger" id='Passwordeorrr'></div>
+                    <div className="error-password text-danger small" id='Passwordeorrr' ></div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="role" className='form-label'>Role:</label>
@@ -100,7 +99,7 @@ const Signup = () => {
                         <option value="investor">Investor</option>
                         <option value="public">Public</option>
                     </select>
-                    <div className="error-message text-danger" id='Typeerror'></div>
+                    <div className="error-message text-danger small" id='Typeerror'></div>
                 </div>
                 <button onClick={handleSignup} className="btn btn-primary">Sign up</button>
                 <span><div className='mt-2' >Have an Account: <span className='btn btn-primary'><Link className='text-white' style={{ textDecoration: 'none' }} to='/login'>SignIn</Link></span> </div></span>

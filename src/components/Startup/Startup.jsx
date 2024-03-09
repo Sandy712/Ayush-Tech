@@ -155,7 +155,20 @@ function Startup() {
         <div className="form-popup" id="myForm" style={{ display: 'none' }}>
           <form className="form-container" ref={form} onSubmit={sendEmail}>
             <h1>Connection</h1>
+             {/* {filteredInvestors().map((investor , index)=>(
+               <input name="user_reciver"></input>
+               ))} */}
 
+
+            <label htmlFor="reciver">
+              <b>Recive Emal</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter email"
+              name="user_reciver"
+              required
+            />
             <label htmlFor="name">
               <b>Name</b>
             </label>
@@ -174,7 +187,9 @@ function Startup() {
               placeholder="Enter Email"
               name="user_email"
               required
+             
             />
+             
 
             <input type="submit" className="btn btn-success" value="Send Request" />
             <button type="button" className="btn cancel" onClick={closeForm}>

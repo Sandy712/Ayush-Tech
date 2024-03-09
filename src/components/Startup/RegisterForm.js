@@ -9,6 +9,7 @@ import { ref, uploadString, getDownloadURL } from "firebase/storage";
 
 function RegisterForm() {
   const [input, setInput] = useState("");
+  const [email, setEmail] = useState("")
   const [logo, setLogo] = useState(null);
   const [rev, setrev] = useState("");
   const [launch, setlaunch] = useState("");
@@ -39,6 +40,7 @@ function RegisterForm() {
       const docRef = await addDoc(collection(db, "Startups_items"), {
         id: uuid(),
         Company_Name: input,
+        Company_Email: email,
         Company_Logo: logoUrl,
         Company_Revenue: rev,
         Company_Launch: launch,
@@ -82,6 +84,7 @@ function RegisterForm() {
     }
     savestartup();
     setInput("");
+    setEmail("")
     setLogo(null);
     setrev("");
     setlaunch("");
@@ -120,6 +123,17 @@ function RegisterForm() {
           placeholder="Startup Name"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          className="inp"
+        />
+      </div>
+      <div className="input-group">
+        <label className="lab">Email</label>
+        <input
+          type="email"
+          // required
+          placeholder="Startup Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="inp"
         />
       </div>
