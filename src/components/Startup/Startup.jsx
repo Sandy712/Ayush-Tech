@@ -6,6 +6,8 @@ import { firestore } from "../../Firebase";
 
 function Startup() {
   const [final, setfinal] = useState([]);
+  const [filter, setFilterOptions] = useState('');
+
 
   const GetStartups = async () => {
     try {
@@ -23,6 +25,27 @@ function Startup() {
     GetStartups();
   }, []);
 
+  const applyFilter = (option) => {
+    setFilterOptions(option);
+  };
+
+  const filteredInvestors = () => {
+    if (!filter) {
+      return final;
+    }
+
+    return final.filter((startup) => {
+      if (filter === 'Revenue') {
+        return startup.Company_Revenue >= 150;
+      } else if (filter === 'Date') {
+        return startup.Company_Launch > "2015-10-05";
+      }
+      return true;
+    });
+
+  };
+
+
   return (
     <div>
       <header class="bg-dark text-white py-3">
@@ -39,19 +62,14 @@ function Startup() {
             </button>
             <ul class="dropdown-menu" aria-labelledby="filterDropdown">
               <li>
-                <a class="dropdown-item" href="/">
-                  Option 1
-                </a>
+                <button className="dropdown-item" onClick={() => applyFilter('Revenue')}>
+                  Revenue
+                </button>
               </li>
               <li>
-                <a class="dropdown-item" href="/">
-                  Option 2
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="/">
-                  Option 3
-                </a>
+                <button className="dropdown-item" onClick={() => applyFilter('Date')}>
+                  Date
+                </button>
               </li>
             </ul>
           </div>
@@ -70,38 +88,38 @@ function Startup() {
       </header>
 
       <div className="container mt-5">
-    <div className="row">
-        <h1>Top Investors</h1>
-        {final.map((investor, index) => (
+        <div className="row">
+          <h1>Top Investors</h1>
+          {filteredInvestors().map((investor, index) => (
             <div key={index} className="col-lg-4 mb-5">
-                <div className="card h-100 shadow border-0">
-                    <img
-                        className="card-img-top img-fluid"
-                        src={investor.Company_Logo}
-                        alt="..."
-                        style={{ width: '32rem', height: '17rem' }} // Set fixed size here
-                    />
-                    <div className="card-body p-4">
-                        <a className="text-decoration-none link-dark stretched-link" href="#!">
-                            <div className="h5 card-title mb-3">{investor.Company_Name}</div>
-                        </a>
-                        <p className="card-text mb-0">{investor.Company_Details}</p>
-                    </div>
-                    <div className="card-footer p-4 pt-0 bg-transparent border-top-0">
-                        <div className="d-flex align-items-end justify-content-between">
-                            <div className="d-flex align-items-center">
-                                <div className="small">
-                                    <div className="fw-bold">Revenue: {investor.Company_Revenue}</div>
-                                    <div className="text-muted">Established: {investor.Company_Launch}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div className="card h-100 shadow border-0">
+                <img
+                  className="card-img-top img-fluid"
+                  src={investor.Company_Logo}
+                  alt="..."
+                  style={{ width: '32rem', height: '17rem' }} // Set fixed size here
+                />
+                <div className="card-body p-4">
+                  <a className="text-decoration-none link-dark stretched-link" href="#!">
+                    <div className="h5 card-title mb-3">{investor.Company_Name}</div>
+                  </a>
+                  <p className="card-text mb-0">{investor.Company_Details}</p>
                 </div>
+                <div className="card-footer p-4 pt-0 bg-transparent border-top-0">
+                  <div className="d-flex align-items-end justify-content-between">
+                    <div className="d-flex align-items-center">
+                      <div className="small">
+                        <div className="fw-bold">Revenue: {investor.Company_Revenue}</div>
+                        <div className="text-muted">Established: {investor.Company_Launch}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        ))}
-    </div>
-</div>
+          ))}
+        </div>
+      </div>
 
     </div>
   );
