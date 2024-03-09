@@ -5,6 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 
 function Investor() {
   const [initial, setinitial] = useState([]);
+  const [filter, setFilterOptions] = useState('');
 
   const GetInvestor = async () => {
     try {
@@ -24,6 +25,26 @@ function Investor() {
     GetInvestor();
   }, []);
 
+  const applyFilter = (option) => {
+    setFilterOptions(option);
+  };
+
+  const filteredInvestors = () => {
+    if (!filter) {
+      return initial;
+    }
+
+    return initial.filter((startup) => {
+      if (filter === 'Revenue') {
+        return startup.InvestmentAmount >= 20000000;
+      } else if (filter === 'Type') {
+        return startup.InvestmentType === "Angel"
+      }
+      return true;
+    });
+
+  };
+
   return (
     <div>
       <header className="bg-dark text-white py-3">
@@ -40,19 +61,14 @@ function Investor() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="filterDropdown">
               <li>
-                <a className="dropdown-item" href="/">
-                  Option 1
-                </a>
+                <button className="dropdown-item" onClick={() => applyFilter('Revenue')}>
+                  Revenue
+                </button>
               </li>
               <li>
-                <a className="dropdown-item" href="/">
-                  Option 2
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/">
-                  Option 3
-                </a>
+                <button className="dropdown-item"  onClick={() => applyFilter('Type')}>
+                  Type
+                </button>
               </li>
             </ul>
           </div>
@@ -61,7 +77,6 @@ function Investor() {
             <Link to="/InvestorForm" style={{ color: "white" }}>
               <i className="fas fa-plus"></i> Register
             </Link>
-
           </button>
 
           <a href="/" className="text-decoration-none text-white ms-3">
@@ -73,7 +88,7 @@ function Investor() {
       <div className="container mt-5">
         <div className="row">
           <h1>Top Investors</h1>
-          {initial.map((Startup, index) => (
+          {filteredInvestors().map((Startup, index) => (
             <div key={index} className="col-md-4 mb-4">
               <div className="card">
                 {/* Image tag here */}
@@ -94,4 +109,4 @@ function Investor() {
   )
 }
 
-export default Investor
+export default Investor;

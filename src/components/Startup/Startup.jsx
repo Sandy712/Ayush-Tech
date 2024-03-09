@@ -6,13 +6,15 @@ import "../Startup/Startup.css";
 import emailjs from '@emailjs/browser';
 
 function Startup() {
-  const [final, setFinal] = useState([]);
+  const [final, setfinal] = useState([]);
+  const [filter, setFilterOptions] = useState('');
+
 
   const getStartups = async () => {
     try {
       const querySnapshot = await getDocs(collection(firestore, "Startups_items"));
       const startupData = querySnapshot.docs.map((doc) => doc.data());
-      setFinal(startupData);
+      setfinal(startupData);
     } catch (error) {
       console.error("Error getting startups", error);
     }
@@ -21,6 +23,27 @@ function Startup() {
   useEffect(() => {
     getStartups();
   }, []);
+
+  const applyFilter = (option) => {
+    setFilterOptions(option);
+  };
+
+  const filteredInvestors = () => {
+    if (!filter) {
+      return final;
+    }
+
+    return final.filter((startup) => {
+      if (filter === 'Revenue') {
+        return startup.Company_Revenue >= 150;
+      } else if (filter === 'Date') {
+        return startup.Company_Launch > "2015-10-05";
+      }
+      return true;
+    });
+
+  };
+
 
   function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -63,26 +86,21 @@ function Startup() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="filterDropdown">
               <li>
-                <a className="dropdown-item" href="/">
-                  Option 1
-                </a>
+                <button className="dropdown-item" onClick={() => applyFilter('Revenue')}>
+                  Revenue
+                </button>
               </li>
               <li>
-                <a className="dropdown-item" href="/">
-                  Option 2
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/">
-                  Option 3
-                </a>
+                <button className="dropdown-item" onClick={() => applyFilter('Date')}>
+                  Date
+                </button>
               </li>
             </ul>
           </div>
 
           <button className="btn btn-primary" title="Register as a Startup">
             <i className="fas fa-plus"></i>
-            <Link to="/RegisterForm-startup" style={{ color: "black" }}>
+            <Link to="/StartupForm" style={{ color: "black" }}>
               Register
             </Link>
           </button>
@@ -94,9 +112,9 @@ function Startup() {
       </header>
 
       <div className="container mt-5">
-        <div className="row">
-          <h1>Top Investors</h1>
-          {final.map((investor, index) => (
+            <div className="row">
+            <h1>Top Investors</h1>
+            {filteredInvestors().map((investor, index) => (
             <div key={index} className="col-lg-4 mb-5">
               <div className="card h-100 shadow border-0">
                 <img
