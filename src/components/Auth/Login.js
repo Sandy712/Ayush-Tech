@@ -24,7 +24,7 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(localStorage.getItem('users'));
+        // console.log(localStorage.getItem('users'));
 
         // Find the user in the stored signup data based on the email
         const user = usersData.find((user) => user.email === email);
