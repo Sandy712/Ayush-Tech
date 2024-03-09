@@ -158,7 +158,7 @@ function Startup() {
               required
             />
 
-            <input type="submit" value="Send" />
+            <input type="submit" className="btn btn-success" value="Send Request" />
             <button type="button" className="btn cancel" onClick={closeForm}>
               Close
             </button>
