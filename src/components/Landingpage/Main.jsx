@@ -296,7 +296,7 @@ export default function Main() {
               <img
                 src="https://img.freepik.com/free-vector/illustration-diverse-people_53876-28459.jpg?t=st=1710049737~exp=1710053337~hmac=83bdecd005f0cc92b06de904e7e7ea4237effce54fb9b45d8a0d00e1c56db098&w=740"
                 className="img-fluid"
-                alt="Placeholder Image"
+                alt="Placeholder"
                 style={{height:'25rem'}}
               />
             </div>
@@ -331,7 +331,7 @@ export default function Main() {
               <img
                 src="https://img.freepik.com/free-vector/people-showcasing-different-types-ways-access-news_53876-66059.jpg?t=st=1710050488~exp=1710054088~hmac=0cde77ef57a002aabef77e77d0587a21647b8554bfae085b15b980fe82fadaca&w=900"
                 className="img-fluid"
-                alt="Placeholder Image"
+                alt="Placeholder"
                 style={{height:'25rem'}}
               />
             </div>
@@ -495,16 +495,16 @@ export default function Main() {
               <div className="col-xs-12 col-sm-6 col-xl-3 order-1 order-xl-2">
                 <ul className="nav justify-content-center justify-content-sm-end">
                   <li className="nav-item">
-                    <a className="nav-link link-dark px-3" href="#!"></a>
+                    <Link className="nav-link link-dark px-3" to="/"></Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link link-dark px-3" href="#!"></a>
+                    <Link className="nav-link link-dark px-3" to="/"></Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link link-dark px-3" href="#!"></a>
+                    <Link className="nav-link link-dark px-3" to="/"></Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link link-dark px-3" href="#!"></a>
+                    <Link className="nav-link link-dark px-3" to="/"></Link>
                   </li>
                 </ul>
               </div>
