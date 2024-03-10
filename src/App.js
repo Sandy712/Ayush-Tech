@@ -11,7 +11,8 @@ import Startup from './components/Startup/Startup';
 import Investor from './components/Investor/Investor';
 import StartupRegisterForm from './components/Startup/RegisterForm';
 import FandQ from './components/Fquestion/FandQ';
-import InvestorRegisterForm from "./components/Investor/RegisterForm"
+import InvestorRegisterForm from "./components/Investor/RegisterForm";
+import Webinars from './components/Webinar/Webinars';
 
 
 export const DataContainer = createContext();
@@ -71,6 +72,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path='/InvestorForm' element={<InvestorRegisterForm />} />
+        </Routes>
+        <Routes>
+          <Route path='/webs' element={<Webinars/>}/>
         </Routes>
 
       </div>
