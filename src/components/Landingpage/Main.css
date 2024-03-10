@@ -29,15 +29,7 @@
     margin-bottom: 15px;
   }
   
-  .overlay-content button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+   
   
   .overlay-content button:hover {
     background-color: #0056b3;
@@ -56,4 +48,7 @@
 .content-container {
   flex: 1; /* The content container will take up remaining space */
 }
-
+.btn-primary{
+  background-color:#169BD7 !important;
+}
+ 

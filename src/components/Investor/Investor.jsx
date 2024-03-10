@@ -86,12 +86,12 @@ function Investor() {
       </header>
 
       <div className="container mt-5">
-        <div className="row">
+        {/* <div className="row">
           <h1>Top Investors</h1>
           {filteredInvestors().map((Startup, index) => (
             <div key={index} className="col-md-4 mb-4">
               <div className="card">
-                {/* Image tag here */}
+                 
                 <img src={Startup.PhotoURL} className="card-img-top" alt={Startup.Name} />
                 <div className="card-body">
                   <h5 className="card-title">{Startup.Name}</h5>
@@ -99,6 +99,42 @@ function Investor() {
                   <p className="card-text">Total Investment: {Startup.InvestmentAmount}</p>
                   <p className="card-text">Email:{Startup.Contact}</p>
                   <button className="btn btn-primary">+</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div> */}
+        <div className="row">
+          <h1>Top Investors</h1>
+          {filteredInvestors().map((Startup, index) => (
+            <div key={index} className="col-lg-4 mb-5">
+              <div className="card h-100 shadow border-0">
+                <img
+                  className="card-img-top img-fluid"
+                  src={Startup.PhotoURL}
+                  alt="..."
+                  style={{ width: "32rem", height: "17rem" }} // Set fixed size here
+                />
+                <div className="card-body p-4">
+                  <a className="text-decoration-none link-dark " href="#!">
+                    <div className="h5 card-title mb-3">
+                      {Startup.Name}
+                    </div>
+                  </a>
+                  <p className="card-text mb-0">{Startup.InvestmentType}</p>
+                </div>
+                <div className="card-footer p-4 pt-0 bg-transparent border-top-0">
+                  <div className="d-flex align-items-end justify-content-between">
+                    <div className="d-flex align-items-center">
+                      <div className="small">
+                        <div className="fw-bold">
+                          Total Investment: {Startup.InvestmentAmount}
+                        </div>
+                         
+                      </div>
+                    </div>
+                    <button className="btn btn-success">Connect +</button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -3,16 +3,17 @@ import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { firestore } from "../../Firebase";
 import "../Startup/Startup.css";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 function Startup() {
   const [final, setfinal] = useState([]);
-  const [filter, setFilterOptions] = useState('');
-
+  const [filter, setFilterOptions] = useState("");
 
   const getStartups = async () => {
     try {
-      const querySnapshot = await getDocs(collection(firestore, "Startups_items"));
+      const querySnapshot = await getDocs(
+        collection(firestore, "Startups_items")
+      );
       const startupData = querySnapshot.docs.map((doc) => doc.data());
       setfinal(startupData);
     } catch (error) {
@@ -34,16 +35,14 @@ function Startup() {
     }
 
     return final.filter((startup) => {
-      if (filter === 'Revenue') {
+      if (filter === "Revenue") {
         return startup.Company_Revenue >= 150;
-      } else if (filter === 'Date') {
+      } else if (filter === "Date") {
         return startup.Company_Launch > "2015-10-05";
       }
       return true;
     });
-
   };
-
 
   function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -59,12 +58,17 @@ function Startup() {
     e.preventDefault();
 
     try {
-      await emailjs.sendForm('service_9ygu824', 'template_l9vtooe', form.current, {
-        publicKey: '90zPepEbLIreC9P-d',
-      });
-      console.log('SUCCESS!');
+      await emailjs.sendForm(
+        "service_9ygu824",
+        "template_l9vtooe",
+        form.current,
+        {
+          publicKey: "90zPepEbLIreC9P-d",
+        }
+      );
+      console.log("SUCCESS!");
     } catch (error) {
-      console.log('FAILED...', error.text);
+      console.log("FAILED...", error.text);
     }
 
     closeForm();
@@ -86,12 +90,18 @@ function Startup() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="filterDropdown">
               <li>
-                <button className="dropdown-item" onClick={() => applyFilter('Revenue')}>
+                <button
+                  className="dropdown-item"
+                  onClick={() => applyFilter("Revenue")}
+                >
                   Revenue
                 </button>
               </li>
               <li>
-                <button className="dropdown-item" onClick={() => applyFilter('Date')}>
+                <button
+                  className="dropdown-item"
+                  onClick={() => applyFilter("Date")}
+                >
                   Date
                 </button>
               </li>
@@ -112,9 +122,9 @@ function Startup() {
       </header>
 
       <div className="container mt-5">
-            <div className="row">
-            <h1>Top Investors</h1>
-            {filteredInvestors().map((investor, index) => (
+        <div className="row">
+          <h1>Top Investors</h1>
+          {filteredInvestors().map((investor, index) => (
             <div key={index} className="col-lg-4 mb-5">
               <div className="card h-100 shadow border-0">
                 <img
@@ -152,13 +162,12 @@ function Startup() {
             </div>
           ))}
         </div>
-        <div className="form-popup" id="myForm" style={{ display: 'none' }}>
+        <div className="form-popup" id="myForm" style={{ display: "none" }}>
           <form className="form-container" ref={form} onSubmit={sendEmail}>
             <h1>Connection</h1>
-             {/* {filteredInvestors().map((investor , index)=>(
+            {/* {filteredInvestors().map((investor , index)=>(
                <input name="user_reciver"></input>
                ))} */}
-
 
             <label htmlFor="reciver">
               <b>Recive Emal</b>
@@ -187,11 +196,13 @@ function Startup() {
               placeholder="Enter Email"
               name="user_email"
               required
-             
             />
-             
 
-            <input type="submit" className="btn btn-success" value="Send Request" />
+            <input
+              type="submit"
+              className="btn btn-success"
+              value="Send Request"
+            />
             <button type="button" className="btn cancel" onClick={closeForm}>
               Close
             </button>

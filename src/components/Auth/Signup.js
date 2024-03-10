@@ -30,35 +30,28 @@ const Signup = () => {
 
     const handleSignup = () => {
         if (email === '') {
-            // setEmailError('Please Enter Your Email');
             document.getElementById('Erroremail').innerHTML='Please Enter Your Email'
-            return 
-              // Exit early to prevent further execution
+            return;
         }
     
         if (password === '') {
-            // setPasswordError('Please Create Password');
             document.getElementById('Passwordeorrr').innerHTML='Please Enter Your Password'
-           return
+            return;
         }
     
         if (role === '') {
-            // setRoleError('Please Select User Role');
             document.getElementById('Typeerror').innerHTML='Please Select Type'
-            return
+            return;
         }
-         
     
         // If all validations pass, proceed with signup
-        Navigate('/login');
-    
         const userData = { email, password, role };
         const usersData = JSON.parse(localStorage.getItem('users')) || [];
         usersData.push(userData);
+        localStorage.setItem('users', JSON.stringify(usersData));
     
-     
+        Navigate('/login');
     };
-
     return (
         <div className="main">
             <div className="signup-container">
