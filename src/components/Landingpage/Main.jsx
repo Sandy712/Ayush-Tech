@@ -253,7 +253,7 @@ export default function Main() {
       </div>
 
       <div className="px-5 my-5">
-        <aside className=" bg-gradient rounded-3 p-4 p-sm-5 mt-5" style={{backgroundColor:'#222c65'}}>
+        <aside className=" bg-gradient rounded-3 d-none d-lg-block p-4 p-sm-5 mt-5" style={{backgroundColor:'#222c65'}}>
           <div className="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
             <div className="mb-4 mb-xl-0">
               <div className="fs-3 fw-bold text-white">Newsletter</div>
@@ -292,7 +292,7 @@ export default function Main() {
       <div className="container mt-5 p-3 rounded " style={{backgroundColor:'white'}}>
         <div className="row">
           <div className="col-md-6">
-            <div className="content-section d-flex justify-content-center align-items-center">
+            <div className="content-section d-flex justify-content-center d-none d-lg-block align-items-center">
               <img
                 src="https://img.freepik.com/free-vector/illustration-diverse-people_53876-28459.jpg?t=st=1710049737~exp=1710053337~hmac=83bdecd005f0cc92b06de904e7e7ea4237effce54fb9b45d8a0d00e1c56db098&w=740"
                 className="img-fluid"
@@ -327,7 +327,7 @@ export default function Main() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="content-section d-flex justify-content-center align-items-center">
+            <div className="content-section d-flex d-none d-lg-block justify-content-center align-items-center">
               <img
                 src="https://img.freepik.com/free-vector/people-showcasing-different-types-ways-access-news_53876-66059.jpg?t=st=1710050488~exp=1710054088~hmac=0cde77ef57a002aabef77e77d0587a21647b8554bfae085b15b980fe82fadaca&w=900"
                 className="img-fluid"
