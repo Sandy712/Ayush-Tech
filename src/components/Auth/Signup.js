@@ -10,7 +10,7 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState(''); // State for selected role
- 
+
     const Navigate = useNavigate();
 
 
@@ -19,7 +19,7 @@ const Signup = () => {
         if (name === 'email') {
             setEmail(value);
 
-             
+
         } else if (name === 'password') {
             setPassword(value);
         }
@@ -30,26 +30,26 @@ const Signup = () => {
 
     const handleSignup = () => {
         if (email === '') {
-            document.getElementById('Erroremail').innerHTML='Please Enter Your Email'
+            document.getElementById('Erroremail').innerHTML = 'Please Enter Your Email'
             return;
         }
-    
+
         if (password === '') {
-            document.getElementById('Passwordeorrr').innerHTML='Please Enter Your Password'
+            document.getElementById('Passwordeorrr').innerHTML = 'Please Enter Your Password'
             return;
         }
-    
+
         if (role === '') {
-            document.getElementById('Typeerror').innerHTML='Please Select Type'
+            document.getElementById('Typeerror').innerHTML = 'Please Select Type'
             return;
         }
-    
+
         // If all validations pass, proceed with signup
         const userData = { email, password, role };
         const usersData = JSON.parse(localStorage.getItem('users')) || [];
         usersData.push(userData);
         localStorage.setItem('users', JSON.stringify(usersData));
-    
+
         Navigate('/login');
     };
     return (
@@ -66,7 +66,7 @@ const Signup = () => {
                         onChange={handleInputChange}
                         required
                         placeholder='Enter Your Email'
-                        className='form-control'    
+                        className='form-control'
                     />
                     <div className="error-message text-danger small" id='Erroremail'></div>
                 </div>
@@ -90,7 +90,6 @@ const Signup = () => {
                         <option value="">Select a role</option>
                         <option value="startup">Startup</option>
                         <option value="investor">Investor</option>
-                        <option value="public">Public</option>
                     </select>
                     <div className="error-message text-danger small" id='Typeerror'></div>
                 </div>

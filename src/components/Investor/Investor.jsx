@@ -66,18 +66,18 @@ function Investor() {
                 </button>
               </li>
               <li>
-                <button className="dropdown-item"  onClick={() => applyFilter('Type')}>
+                <button className="dropdown-item" onClick={() => applyFilter('Type')}>
                   Type
                 </button>
               </li>
             </ul>
           </div>
 
-          <button className="btn btn-primary" title="Register as a Startup">
-            <Link to="/InvestorForm" style={{ color: "white" }}>
+          <Link to="/InvestorForm" style={{ color: "white" }}>
+            <button className="btn btn-primary" title="Register as a Startup">
               <i className="fas fa-plus"></i> Register
-            </Link>
-          </button>
+            </button>
+          </Link>
 
           <a href="/" className="text-decoration-none text-white ms-3">
             <i className="fas fa-bell"></i>
@@ -130,7 +130,7 @@ function Investor() {
                         <div className="fw-bold">
                           Total Investment: {Startup.InvestmentAmount}
                         </div>
-                         
+
                       </div>
                     </div>
                     <button className="btn btn-success">Connect +</button>

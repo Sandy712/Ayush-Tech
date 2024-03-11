@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar({ current_user }) {
     return (
-         
+
         <nav className="navbar navbar-expand-lg navbar-dark " style={{ height: '5rem', backgroundColor: '#222c65' }}>
             <div className="container px-5">
                 <Link className="navbar-brand" to="/">Ayush-Bharat</Link>
@@ -25,16 +25,17 @@ export default function Navbar({ current_user }) {
                                 : <></>
                         }
 
+
+                        <li className="nav-item"><Link className='nav-link' to="/News"> News </Link></li>
+                        <li className="nav-item"><Link className="nav-link" to='/webs'>Webinars</Link></li>
+
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" id="navbarDropdownBlog" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
                             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                <li><Link className="dropdown-item" to="/News"> News </Link></li>
                                 <li><Link className="dropdown-item" to="/Contact-Us">Connect Us</Link></li>
                                 <li><Link className="dropdown-item" to="/F&A">FAQs</Link></li>
                             </ul>
                         </li>
-
-                        <li className="nav-item"><Link className="nav-link" to='/webs'>Webinars</Link></li>
                         <li className="nav-item"><Link className="nav-link" to='/login'>Login</Link></li>
 
                     </ul>

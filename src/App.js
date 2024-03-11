@@ -1,7 +1,7 @@
 import './App.css';
 import Main from './components/Landingpage/Main';
 import NewsComponent from './components/Resources/News';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import Navbar from './components/navbar/Navbar';
@@ -19,7 +19,7 @@ export const DataContainer = createContext();
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState('false');
+  const [loggedIn, setLoggedIn] = useState(false);
   const [usersData, setUsersData] = useState([]);
   const [current_user, setcurrent_user] = useState('');
 
@@ -44,13 +44,13 @@ function App() {
 
         <Navbar current_user={current_user} />
         <Routes>
-          <Route exact path='/' element={<Main />} />
+          <Route exact path='/' element={<Main />} current_user={current_user}/>
         </Routes>
         <Routes>
-          <Route exact path='/startup' element={<Startup />} />
+          <Route exact path='/startup' element={loggedIn ? <Startup /> : <Navigate to='/login' />} />
         </Routes>
         <Routes>
-          <Route exact path='/investor' element={<Investor />} />
+          <Route exact path='/investor' element={loggedIn ? <Investor /> : <Navigate to='/login' />} />
         </Routes>
         <Routes>
           <Route path='/login' element={<Login />} />
@@ -74,7 +74,7 @@ function App() {
           <Route path='/InvestorForm' element={<InvestorRegisterForm />} />
         </Routes>
         <Routes>
-          <Route path='/webs' element={<Webinars/>}/>
+          <Route path='/webs' element={<Webinars />} />
         </Routes>
 
       </div>

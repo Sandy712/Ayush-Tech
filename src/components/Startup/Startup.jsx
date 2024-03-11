@@ -108,18 +108,17 @@ function Startup() {
             </ul>
           </div>
 
-          <button className="btn btn-primary" title="Register as a Startup">
-            <i className="fas fa-plus"></i>
-            <Link to="/StartupForm" style={{ color: "black" }}>
-              Register
-            </Link>
-          </button>
+          <Link to="/StartupForm" style={{ color: "black" }}>
+            <button className="btn btn-primary" title="Register as a Startup">
+              <i className="fas fa-plus"></i> Register
+            </button>
+          </Link>
 
           <a href="/" className="text-decoration-none text-white ms-3">
             <i className="fas fa-bell"></i>
           </a>
         </div>
-      </header>
+      </header >
 
       <div className="container mt-5">
         <div className="row">
@@ -209,7 +208,7 @@ function Startup() {
           </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

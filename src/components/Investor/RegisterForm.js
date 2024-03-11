@@ -1,49 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import "./Registerstyle.css";
+// import { Link } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { app, storage } from "../../Firebase";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 
-function InvestorForm() {
-    const [name, setName] = useState("");
-    const [photo, setPhoto] = useState(null);
-    const [investmentAmount, setInvestmentAmount] = useState("");
-    const [investmentType, setInvestmentType] = useState("");
-    const [email, setemail] = useState("");
 
-    const saveInvestor = async () => {
+function RegisterForm() {
+    const [input, setInput] = useState("");
+    const [email, setEmail] = useState("")
+    const [logo, setLogo] = useState(null);
+    const [rev, setrev] = useState("");
+    const [launch, setlaunch] = useState("");
+    const [date, setdate] = useState("");
+
+
+    const savestartup = async () => {
         const db = getFirestore(app);
-
-        if (!photo) {
-            console.log("Please select a photo");
+        if (!logo) {
+            console.log("Please select a logo");
             return;
         }
 
-        const storageRef = ref(storage, `investor_photos/${uuid()}_${photo.name}`);
+        const storageRef = ref(storage, `storage_logo/${uuid()}_${logo.name}`);
 
         try {
-            const photoURL = await uploadPhoto(storageRef);
+            const dataURL = await convertFileToDataURL(logo);
 
-            const docRef = await addDoc(collection(db, "Investors_details"), {
+
+            console.log('Starting file upload...');
+            await uploadString(storageRef, dataURL, 'data_url');
+            console.log('File upload successful.');
+
+            const logoUrl = await getDownloadURL(storageRef);
+            console.log('Download URL retrieved:', logoUrl);
+
+
+            const docRef = await addDoc(collection(db, "Startups_items"), {
                 id: uuid(),
-                Name: name,
-                PhotoURL: photoURL,
-                InvestmentAmount: investmentAmount,
-                InvestmentType: investmentType,
-                Contact: email,
+                Company_Name: input,
+                Company_Email: email,
+                Company_Logo: logoUrl,
+                Company_Revenue: rev,
+                Company_Launch: launch,
+                Company_Details: date,
             });
 
-            console.log("Investor added with ID: ", docRef.id);
+            console.log("Startup added with ID: ", docRef.id);
         } catch (e) {
             console.error("An error occurred:", e);
         }
-    };
-
-    const uploadPhoto = async (storageRef) => {
-        const photoDataUrl = await convertFileToDataURL(photo);
-        await uploadString(storageRef, photoDataUrl, 'data_url');
-        return getDownloadURL(storageRef);
     };
 
     const convertFileToDataURL = (file) => {
@@ -62,79 +69,106 @@ function InvestorForm() {
         });
     };
 
-    const handlePhotoChange = (e) => {
+    const handleLogochange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setPhoto(file);
+            setLogo(file);
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        saveInvestor();
-        setName("");
-        setPhoto(null);
-        setInvestmentAmount("");
-        setInvestmentType("");
-        setemail("");
+        if (!logo) {
+            console.log("Please select a logo");
+            return;
+        }
+        savestartup();
+        setInput("");
+        setEmail("")
+        setLogo(null);
+        setrev("");
+        setlaunch("");
+        setdate("");
         e.target.reset();
+        document.getElementById(
+            "submitted"
+        ).innerHTML = `                <div className="Container-fluid">
+        <h2>Thank you, submission of<div style='color:'green';'>${input}</div>successful!</h2>
+        <p>We will connect with you soon <i class="fa fa-envelope me-2"></i></p>
+         
+    </div>`;
     };
 
     return (
         <form onSubmit={handleSubmit} id="submitted">
             <h1 className="title" style={{ color: "Blue" }}>
-                Investor Registration
+                Register Startup
             </h1>
+            <hr />
             <div className="input-group">
-                <label className="lab">Investor Photo</label>
+                <label className="lab">Company Logo</label>
                 <input
                     type="file"
                     accept="image/*"
-                    onChange={handlePhotoChange}
-                    className="inp"
+                    // value={logo}
+                    onChange={handleLogochange}
+                    placeholder="Company Logo"
+                    className="imp"
                 />
             </div>
             <div className="input-group">
-                <label className="lab">Investor Name</label>
+                <label className="lab">Startup </label>
                 <input
                     type="text"
-                    placeholder="Investor Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    // required
+                    placeholder="Startup Name"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
                     className="inp"
                 />
             </div>
             <div className="input-group">
-                <label className="lab">Total Investment</label>
+                <label className="lab">Email</label>
+                <input
+                    type="email"
+                    // required
+                    placeholder="Startup Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="inp"
+                />
+            </div>
+            <div className="input-group">
+                <label className="lab">Revenue</label>
                 <input
                     type="number"
-                    value={investmentAmount}
-                    onChange={(e) => setInvestmentAmount(e.target.value)}
+                    name="password"
+                    value={rev}
+                    onChange={(e) => setrev(e.target.value)}
                     required
-                    placeholder="Investment Amount"
+                    placeholder="Company Revenue"
                     className="inp"
                 />
             </div>
-            <div className="input-group" style={{ display: "block" }}>
-                <label htmlFor="type" className="form-label ">Investor Type</label>
-
-                <select id="type" value={investmentType} onChange={(e) => setInvestmentType(e.target.value)}
-                    className='form-select' style={{ width: '100%' }}>
-                    <option value="">Select an investment type</option>
-                    <option value="Personal">Personal Inv.</option>
-                    <option value="Angel">Angel Inv.</option>
-                    <option value="Venture">Venture Cap.</option>
-                </select>
-                <div className="error-message text-danger" id='Typeerror'></div>
+            <div className="input-group">
+                <label className="lab">Establishment</label>
+                <input
+                    type="Date"
+                    value={launch}
+                    onChange={(e) => setlaunch(e.target.value)}
+                    required
+                    placeholder="Start Date"
+                    className="inp"
+                />
             </div>
             <div className="input-group">
-                <label className="lab">Email Information</label>
-                <input
+                <label className="lab">Details</label>
+                <textarea
                     type="text"
-                    value={email}
-                    onChange={(e) => setemail(e.target.value)}
+                    value={date}
+                    onChange={(e) => setdate(e.target.value)}
                     required
-                    placeholder="Email Information"
+                    placeholder="Others Details"
                     className="inp"
                 />
             </div>
@@ -144,4 +178,4 @@ function InvestorForm() {
     );
 }
 
-export default InvestorForm;
+export default RegisterForm;

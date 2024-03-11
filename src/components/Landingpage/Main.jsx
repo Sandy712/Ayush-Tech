@@ -10,7 +10,7 @@ import { HiUserGroup } from "react-icons/hi2";
 import { IoMdChatbubbles } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-export default function Main() {
+export default function Main({ current_user }) {
   // const imageSpring = useSpring({
   //   from: { transform: 'translateY(0px) scale(1)' },
   //   to: async next => {
@@ -58,21 +58,42 @@ export default function Main() {
                   Startup India Platform
                 </h1>
                 <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                  <Link
-                    className="btn  btn-lg px-4 me-sm-3"
-                    to="/startup"
-                    style={{
-                      backgroundColor:'#169bd7'
-                    }}
-                  >
-                    For Investor
-                  </Link>
-                  <Link
-                    className="btn btn-outline-light btn-lg px-4"
-                    to="/investor"
-                  >
-                    For Startup
-                  </Link>
+                  {
+                    current_user === 'startup' ?
+                      <Link
+                        className="btn  btn-lg px-4 me-sm-3"
+                        to="/startup"
+                        style={{
+                          backgroundColor: '#169bd7'
+                        }}
+                      >
+                        For Investor
+                      </Link> :
+                      <Link
+                        className="btn  btn-lg px-4 me-sm-3"
+                        to="/login"
+                        style={{
+                          backgroundColor: '#169bd7'
+                        }}
+                      >
+                        For Investor
+                      </Link>
+                  }
+                  {
+                    current_user === 'investor' ?
+                      <Link
+                        className="btn btn-outline-light btn-lg px-4"
+                        to="/investor"
+                      >
+                        For Startup
+                      </Link> :
+                      <Link
+                        className="btn btn-outline-light btn-lg px-4"
+                        to="/login"
+                      >
+                        For Startup
+                      </Link>
+                  }
                 </div>
               </div>
             </div>
@@ -162,13 +183,13 @@ export default function Main() {
                 style={{
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  height:'35rem',
-                  width:'20rem'
+                  height: '35rem',
+                  width: '20rem'
                 }}
               />
             </div>
             <div className="col-lg-8">
-                  <div className="h2">Featured , Who Easy your Tasks!</div>
+              <div className="h2">Featured , Who Easy your Tasks!</div>
               <div className="row gx-5 row-cols-1 row-cols-md-2">
                 <div className="col mb-5 h-100">
                   <div
@@ -244,7 +265,7 @@ export default function Main() {
               <h1 className="text-center">Ayush Bharat</h1>
               <div className="text-center">
                 <div className="fs-4 mb-4 fst-italic">
-                Ayush Bharat is a platform facilitating connections between startups and investors while offering extensive support for mentorship and strategic planning. Our commitment lies in fostering innovation and growth, empowering visionaries to transform ideas into impactful realities
+                  Ayush Bharat is a platform facilitating connections between startups and investors while offering extensive support for mentorship and strategic planning. Our commitment lies in fostering innovation and growth, empowering visionaries to transform ideas into impactful realities
                 </div>
               </div>
             </div>
@@ -253,7 +274,7 @@ export default function Main() {
       </div>
 
       <div className="px-5 my-5">
-        <aside className=" bg-gradient rounded-3 d-none d-lg-block p-4 p-sm-5 mt-5" style={{backgroundColor:'#222c65'}}>
+        <aside className=" bg-gradient rounded-3 d-none d-lg-block p-4 p-sm-5 mt-5" style={{ backgroundColor: '#222c65' }}>
           <div className="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
             <div className="mb-4 mb-xl-0">
               <div className="fs-3 fw-bold text-white">Newsletter</div>
@@ -274,9 +295,10 @@ export default function Main() {
                   className="btn btn-primary btn-outline-light"
                   id="button-newsletter"
                   type="button"
-                  style={{borderRadius:'0px',
-                   
-                }}
+                  style={{
+                    borderRadius: '0px',
+
+                  }}
                 >
                   Sbscribe
                 </button>
@@ -289,7 +311,7 @@ export default function Main() {
         </aside>
       </div>
 
-      <div className="container mt-5 p-3 rounded " style={{backgroundColor:'white'}}>
+      <div className="container mt-5 p-3 rounded " style={{ backgroundColor: 'white' }}>
         <div className="row">
           <div className="col-md-6">
             <div className="content-section d-flex justify-content-center d-none d-lg-block align-items-center">
@@ -297,7 +319,7 @@ export default function Main() {
                 src="https://img.freepik.com/free-vector/illustration-diverse-people_53876-28459.jpg?t=st=1710049737~exp=1710053337~hmac=83bdecd005f0cc92b06de904e7e7ea4237effce54fb9b45d8a0d00e1c56db098&w=740"
                 className="img-fluid"
                 alt="Placeholder"
-                style={{height:'25rem'}}
+                style={{ height: '25rem' }}
               />
             </div>
           </div>
@@ -310,7 +332,9 @@ export default function Main() {
                 convallis libero quis fermentum tristique. Curabitur non
                 vestibulum justo.
               </p>
-              <button className="btn btn-primary">Learn More</button>
+              <Link to='/webs'>
+                <button className="btn btn-primary">Learn More</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -323,7 +347,9 @@ export default function Main() {
                 convallis libero quis fermentum tristique. Curabitur non
                 vestibulum justo.
               </p>
-              <button className="btn btn-primary">Learn More</button>
+              <Link to='/News'>
+                <button className="btn btn-primary">Learn More</button>
+              </Link>
             </div>
           </div>
           <div className="col-md-6">
@@ -332,13 +358,13 @@ export default function Main() {
                 src="https://img.freepik.com/free-vector/people-showcasing-different-types-ways-access-news_53876-66059.jpg?t=st=1710050488~exp=1710054088~hmac=0cde77ef57a002aabef77e77d0587a21647b8554bfae085b15b980fe82fadaca&w=900"
                 className="img-fluid"
                 alt="Placeholder"
-                style={{height:'25rem'}}
+                style={{ height: '25rem' }}
               />
             </div>
           </div>
         </div>
       </div>
-       
+
 
       {/* <section className="py-5">
         <div className="container px-5 my-5">
