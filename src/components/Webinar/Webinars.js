@@ -1,26 +1,41 @@
 // Your main React component
-
 import React from 'react';
 import './webinarscs.css'; // Import your CSS file
-import  webinarsdata from './webdata'; // Import your webinar data
 
 const Webinars = () => {
     return (
         <div className='container'>
-            <h1 className='mb-4'>Webinars</h1>
             <div className='row'>
-                {webinarsdata.map((webinar, index) => (
-                    <div className="col-lg-4 mb-4" key={index}>
-                        <div className="webinar-card">
-                            <h3 className='h5 card-title mb-3'>{webinar.title}</h3>
-                            <p className="date">{webinar.date}</p>
-                            <p className="description">{webinar.description}</p>
-                            <a href={webinar.registrationLink} className="btn-register" target="_blank" rel="noopener noreferrer">
-                                Register Now
-                            </a>
-                        </div>
-                    </div>
-                ))}
+                <div className="community-card">
+                    <h3>Global Tech Investors Network</h3>
+                    <p>Connect with global tech investors and stay updated on the latest investment trends in the tech industry.</p>
+                    <button className="join-button">Join</button>
+                </div>
+                <div className="community-card">
+                    <h3>Social Impact Investors Hub</h3>
+                    <p>Join a community of investors dedicated to supporting and funding social impact projects around the world.</p>
+                    <button className="join-button">Join</button>
+                </div>
+                <div className="community-card">
+                    <h3>Emerging Markets Investment Forum</h3>
+                    <p>Connect with investors focusing on opportunities in emerging markets and share insights on successful investments.</p>
+                    <button className="join-button">Join</button>
+                </div>
+                <div className="community-card">
+                    <h3>Tech Innovators Club</h3>
+                    <p>Join a community of tech enthusiasts and innovative startups to collaborate on cutting-edge projects and ideas.</p>
+                    <button className="join-button">Join</button>
+                </div>
+                <div className="community-card">
+                    <h3>Sustainable Solutions Collective</h3>
+                    <p>Connect with startups and individuals working towards sustainable solutions and creating a positive impact on the environment.</p>
+                    <button className="join-button">Join</button>
+                </div>
+                <div className="community-card">
+                    <h3>Fintech Innovators Network</h3>
+                    <p>Join a community of fintech startups, entrepreneurs, and investors to discuss the latest trends in financial technology.</p>
+                    <button className="join-button">Join</button>
+                </div>
             </div>
         </div>
     );
