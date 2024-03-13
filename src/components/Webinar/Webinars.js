@@ -37,17 +37,16 @@ const Webinars = () => {
                     <button className="join-button">Join</button>
                 </div>
             </div> */}
-      <div>
-        <h2>Gartner Finance Webinars</h2>
-        <iframe
-          title="Gartner Finance Webinars"
-          width="1000"
-          height="600"
-          src="https://www.townscript.com/in/india/startup"
-          frameborder="0"
-          allowFullScreen
-        ></iframe>
+      <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center">Gartner Finance Webinars</h2>
+        <div class="iframe-container">
+          <iframe title="Gartner Finance Webinars" src="https://www.townscript.com/in/india/startup" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
+    </div>
+  </div>
     </div>
   );
 };

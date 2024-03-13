@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar({ current_user }) {
     return (
 
-        <nav className="navbar navbar-expand-lg navbar-dark " style={{ height: '5rem', backgroundColor: '#222c65' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark " style={{ height: '5rem', backgroundColor: '#222c65',}} >
             <div className="container px-5">
                 <Link className="navbar-brand" to="/">Ayush-Bharat</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
