@@ -56,23 +56,27 @@ function Startup() {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-
+    
     try {
-      await emailjs.sendForm(
-        "service_9ygu824",
-        "template_l9vtooe",
-        form.current,
-        {
-          publicKey: "90zPepEbLIreC9P-d",
-        }
-      );
-      console.log("SUCCESS!");
-    } catch (error) {
-      console.log("FAILED...", error.text);
-    }
+        await emailjs.sendForm(
+            "service_9ygu824",
+            "template_l9vtooe",
+            form.current,
+            {
+                publicKey: "90zPepEbLIreC9P-d",
+            }
+        );
+        
+        // Update the HTML element to show success message
+        alert('Request is has been sent successfully')
+        
+      } catch (error) {
+        console.log("FAILED...", error.text);
+      }
+      closeForm();
 
-    closeForm();
-  };
+};
+
 
   return (
     <div>
@@ -162,21 +166,13 @@ function Startup() {
           ))}
         </div>
         <div className="form-popup" id="myForm" style={{ display: "none" }}>
-          <form className="form-container" ref={form} onSubmit={sendEmail}>
+          <form className="form-container" ref={form} onSubmit={sendEmail} id='connection-form'>
             <h1>Connection</h1>
             {/* {filteredInvestors().map((investor , index)=>(
                <input name="user_reciver"></input>
                ))} */}
 
-            <label htmlFor="reciver">
-              <b>Recive Emal</b>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter email"
-              name="user_reciver"
-              required
-            />
+             
             <label htmlFor="name">
               <b>Name</b>
             </label>

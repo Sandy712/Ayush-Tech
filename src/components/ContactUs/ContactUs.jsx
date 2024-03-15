@@ -19,7 +19,7 @@ function ContactUs() {
                             <form
                                 id="contact-form"
                                 name="contact-form"
-                                action="mail.php"
+                                 
                                 method="POST"
                                 className="needs-validation"
                                 noValidate

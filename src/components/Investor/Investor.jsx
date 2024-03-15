@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import { Link } from 'react-router-dom';
 import { firestore } from "../../Firebase";
 import { collection, getDocs } from 'firebase/firestore';
+import emailjs from "@emailjs/browser";
+
 
 function Investor() {
   const [initial, setinitial] = useState([]);
@@ -44,6 +46,39 @@ function Investor() {
     });
 
   };
+
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
+  const form = useRef();
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    
+    try {
+        await emailjs.sendForm(
+            "service_9ygu824",
+            "template_l9vtooe",
+            form.current,
+            {
+                publicKey: "90zPepEbLIreC9P-d",
+            }
+        );
+        
+        // Update the HTML element to show success message
+        alert('Request is has been sent successfully')
+        
+      } catch (error) {
+        console.log("FAILED...", error.text);
+      }
+      closeForm();
+
+};
 
   return (
     <div>
@@ -133,12 +168,52 @@ function Investor() {
 
                       </div>
                     </div>
-                    <button className="btn btn-success">Connect +</button>
+                    <button className="btn btn-success" onClick={openForm}>
+                      Connect +
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className="form-popup" id="myForm" style={{ display: "none" }}>
+          <form className="form-container" ref={form} onSubmit={sendEmail}>
+            <h1>Connection</h1>
+            {/* {filteredInvestors().map((investor , index)=>(
+               <input name="user_reciver"></input>
+               ))} */}
+
+             
+            <label htmlFor="name">
+              <b>Name</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter name"
+              name="user_name"
+              required
+            />
+
+            <label htmlFor="email">
+              <b>Email</b>
+            </label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              name="user_email"
+              required
+            />
+
+            <input
+              type="submit"
+              className="btn btn-success"
+              value="Send Request"
+            />
+            <button type="button" className="btn cancel" onClick={closeForm}>
+              Close
+            </button>
+          </form>
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import "./Main.css";
 import img from "../Landingpage/image/main-vector-removebg-preview.png";
 import img2 from "../Landingpage/image/bg-2.jpg";
 import img5 from "../Landingpage/image/img-5.jpg";
+import Logo from "../navbar/img/main-logo.png";
+
 // import { useSpring, config } from "@react-spring/web";
 import { SiMusicbrainz } from "react-icons/si";
 import { FaNewspaper } from "react-icons/fa";
@@ -52,48 +54,48 @@ export default function Main({ current_user }) {
                 style={{ zIndex: 1 }}
               >
                 <h1 className="display-5 fw-bolder text-white mb-2">
-                  Ayush Bharat
+                  Ayush Tech
                 </h1>
                 <h1 className=" display-5 lead fw-normal text-white-50 mb-4">
-                  Startup India Platform
+                  Startup-Investor Connect Platform
                 </h1>
                 <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                  {
-                    current_user === 'startup' ?
-                      <Link
-                        className="btn  btn-lg px-4 me-sm-3"
-                        to="/startup"
-                        style={{
-                          backgroundColor: '#169bd7'
-                        }}
-                      >
-                        For Investor
-                      </Link> :
-                      <Link
-                        className="btn  btn-lg px-4 me-sm-3"
-                        to="/login"
-                        style={{
-                          backgroundColor: '#169bd7'
-                        }}
-                      >
-                        For Investor
-                      </Link>
-                  }
-                  {
-                    current_user === 'investor' ?
-                      <Link
-                        className="btn btn-outline-light btn-lg px-4"
-                        to="/investor"
-                      >
-                        For Startup
-                      </Link> :
-                      <Link
-                        className="btn btn-outline-light btn-lg px-4"
-                        to="/login"
-                      >
-                        For Startup
-                      </Link>
-                  }
+                  {current_user === "startup" ? (
+                    <Link
+                      className="btn  btn-lg px-4 me-sm-3"
+                      to="/startup"
+                      style={{
+                        backgroundColor: "#169bd7",
+                      }}
+                    >
+                      For Investor
+                    </Link>
+                  ) : (
+                    <Link
+                      className="btn  btn-lg px-4 me-sm-3"
+                      to="/login"
+                      style={{
+                        backgroundColor: "#169bd7",
+                      }}
+                    >
+                      For Investor
+                    </Link>
+                  )}
+                  {current_user === "investor" ? (
+                    <Link
+                      className="btn btn-outline-light btn-lg px-4"
+                      to="/investor"
+                    >
+                      For Startup
+                    </Link>
+                  ) : (
+                    <Link
+                      className="btn btn-outline-light btn-lg px-4"
+                      to="/login"
+                    >
+                      For Startup
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -121,45 +123,61 @@ export default function Main({ current_user }) {
                         <div class="row">
                           <div class="col">
                             <ul>
-                              <li className="">
-                                <strong>
-                                  Seamless Integration of Telemedicine Devices:
-                                </strong>{" "}
-                                Our telehealth platform is designed to
-                                seamlessly integrate with telemedicine devices,
-                                allowing physicians to monitor patient data in
-                                real-time. This feature enables physicians to
-                                detect changes in patients’ conditions and
-                                provide timely interventions, which can help to
-                                prevent complications and reduce hospital
-                                readmissions.
-                              </li>
-                              <li className="mt-2">
-                                <strong>Improved Patient Outcomes:</strong> Our
-                                telehealth platform can help to improve patient
-                                outcomes by providing timely and effective care.
-                                Physicians can monitor patients’ conditions in
-                                real-time, which can help to prevent
-                                complications and reduce hospital readmissions.
-                                Patients can access healthcare services from
-                                their hospital beds or other remote locations,
-                                which can enhance their experience and improve
-                                their satisfaction.
-                              </li>
-                              <li className="mt-2">
-                                <strong>
-                                  Increased Operational Efficiency:
-                                </strong>{" "}
-                                Our healthcare technology solutions can help
-                                hospitals to operate more efficiently by
-                                reducing the time and resources required for
-                                in-person consultations. Physicians can use the
-                                messaging platform to communicate with each
-                                other and nursing staff. This can reduce delays
-                                and improve the flow of patient care. This can
-                                also help to reduce the workload on nursing
-                                staff and other support staff.
-                              </li>
+                              <h2 className="mb-3">
+                                Empowering Startups and Investors with AI
+                                Matchmaking, Mentorship, and News Updates
+                              </h2>
+
+                              <ul>
+                                <li>
+                                  <strong>
+                                    Streamlined Startup-Investor Connections:
+                                  </strong>{" "}
+                                  Connect startups with potential investors
+                                  effortlessly through our platform. Utilizing
+                                  email connections, startups can showcase their
+                                  innovative ideas directly to interested
+                                  investors, fostering valuable partnerships and
+                                  funding opportunities. Our platform
+                                  facilitates seamless communication, enabling
+                                  startups to pitch their visions and investors
+                                  to explore promising ventures conveniently.
+                                </li>
+
+                                <li>
+                                  <strong>
+                                    Informative News, Webinars, and Mentorship:
+                                  </strong>{" "}
+                                  Stay ahead in the startup ecosystem with our
+                                  platform offering a plethora of resources.
+                                  Access the latest news updates, insightful
+                                  webinars, and tailored mentorship programs
+                                  designed to support new startups and
+                                  investment plans. Whether you're seeking
+                                  industry insights, expert guidance, or
+                                  networking opportunities, our platform
+                                  provides valuable resources to help you thrive
+                                  in your entrepreneurial journey.
+                                </li>
+
+                                <li>
+                                  <strong>
+                                    Accessible 24/7 AI Chat Support:
+                                  </strong>{" "}
+                                  Enhance operational efficiency with our
+                                  innovative AI chat support system. Our
+                                  healthcare technology solutions offer
+                                  round-the-clock AI chat support, providing
+                                  immediate assistance to patients and
+                                  healthcare professionals. With this feature,
+                                  hospitals can streamline communication, reduce
+                                  delays, and improve patient care flow.
+                                  Additionally, the implementation of AI chat
+                                  support alleviates the workload on nursing
+                                  staff and other support teams, contributing to
+                                  overall operational efficiency.
+                                </li>
+                              </ul>
                             </ul>
                           </div>
                         </div>
@@ -183,8 +201,8 @@ export default function Main({ current_user }) {
                 style={{
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  height: '35rem',
-                  width: '20rem'
+                  height: "35rem",
+                  width: "20rem",
                 }}
               />
             </div>
@@ -262,10 +280,14 @@ export default function Main({ current_user }) {
         <div className="container px-5 my-5">
           <div className="row gx-5 justify-content-center">
             <div className="col-lg-10 col-xl-7">
-              <h1 className="text-center">Ayush Bharat</h1>
+              <h1 className="text-center">Ayush Tech</h1>
               <div className="text-center">
                 <div className="fs-4 mb-4 fst-italic">
-                  Ayush Bharat is a platform facilitating connections between startups and investors while offering extensive support for mentorship and strategic planning. Our commitment lies in fostering innovation and growth, empowering visionaries to transform ideas into impactful realities
+                  Ayush Tech is a platform facilitating connections between
+                  startups and investors while offering extensive support for
+                  mentorship and strategic planning. Our commitment lies in
+                  fostering innovation and growth, empowering visionaries to
+                  transform ideas into impactful realities
                 </div>
               </div>
             </div>
@@ -274,7 +296,10 @@ export default function Main({ current_user }) {
       </div>
 
       <div className="px-5 my-5">
-        <aside className=" bg-gradient rounded-3 d-none d-lg-block p-4 p-sm-5 mt-5" style={{ backgroundColor: '#222c65' }}>
+        <aside
+          className=" bg-gradient rounded-3 d-none d-lg-block p-4 p-sm-5 mt-5"
+          style={{ backgroundColor: "#222c65" }}
+        >
           <div className="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
             <div className="mb-4 mb-xl-0">
               <div className="fs-3 fw-bold text-white">Newsletter</div>
@@ -296,8 +321,7 @@ export default function Main({ current_user }) {
                   id="button-newsletter"
                   type="button"
                   style={{
-                    borderRadius: '0px',
-
+                    borderRadius: "0px",
                   }}
                 >
                   Sbscribe
@@ -311,7 +335,10 @@ export default function Main({ current_user }) {
         </aside>
       </div>
 
-      <div className="container mt-5 p-3 rounded " style={{ backgroundColor: 'white' }}>
+      <div
+        className="container mt-5 p-3 rounded "
+        style={{ backgroundColor: "white" }}
+      >
         <div className="row">
           <div className="col-md-6">
             <div className="content-section d-flex justify-content-center d-none d-lg-block align-items-center">
@@ -319,7 +346,7 @@ export default function Main({ current_user }) {
                 src="https://img.freepik.com/free-vector/illustration-diverse-people_53876-28459.jpg?t=st=1710049737~exp=1710053337~hmac=83bdecd005f0cc92b06de904e7e7ea4237effce54fb9b45d8a0d00e1c56db098&w=740"
                 className="img-fluid"
                 alt="Placeholder"
-                style={{ height: '25rem' }}
+                style={{ height: "25rem" }}
               />
             </div>
           </div>
@@ -332,7 +359,7 @@ export default function Main({ current_user }) {
                 convallis libero quis fermentum tristique. Curabitur non
                 vestibulum justo.
               </p>
-              <Link to='/webs'>
+              <Link to="/webs">
                 <button className="btn btn-primary">Learn More</button>
               </Link>
             </div>
@@ -347,7 +374,7 @@ export default function Main({ current_user }) {
                 convallis libero quis fermentum tristique. Curabitur non
                 vestibulum justo.
               </p>
-              <Link to='/News'>
+              <Link to="/News">
                 <button className="btn btn-primary">Learn More</button>
               </Link>
             </div>
@@ -358,13 +385,12 @@ export default function Main({ current_user }) {
                 src="https://img.freepik.com/free-vector/people-showcasing-different-types-ways-access-news_53876-66059.jpg?t=st=1710050488~exp=1710054088~hmac=0cde77ef57a002aabef77e77d0587a21647b8554bfae085b15b980fe82fadaca&w=900"
                 className="img-fluid"
                 alt="Placeholder"
-                style={{ height: '25rem' }}
+                style={{ height: "25rem" }}
               />
             </div>
           </div>
         </div>
       </div>
-
 
       {/* <section className="py-5">
         <div className="container px-5 my-5">
@@ -461,76 +487,77 @@ export default function Main({ current_user }) {
         </div>
       </section> */}
 
-      <footer className="footer">
-        <div className="bg-light py-3 py-md-5 py-xl-8 border-top border-light-subtle">
-          <div className="container overflow-hidden">
-            <div className="row gy-3 gy-md-5 gy-xl-0 align-items-sm-center">
-              <div className="col-xs-12 col-sm-6 col-xl-3 order-0 order-xl-0">
-                <div className="footer-logo-wrapper text-center text-sm-start">
+      <footer className="footer mt-4">
+        <div
+          className="  py-3 py-md-4 py-xl-5 border-top border-light-subtle"
+          style={{ backgroundColor: "#222c65" }}
+        >
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6 col-xl-3 mb-3 mb-xl-0">
+                <div className="footer-logo-wrapper text-center text-md-start">
                   <a href="#!">
-                    <h1>Ayush Logo</h1>
+                    <img
+                      src={Logo}
+                      alt=""
+                      className="img-fluid"
+                      style={{ height: "4.9rem" }}
+                    />
                   </a>
                 </div>
               </div>
 
-              <div className="col-xs-12 col-xl-6 order-2 order-xl-1">
-                <ul className="nav justify-content-center">
+              <div className="col-md-6 col-xl-6">
+                <ul className="nav justify-content-center justify-content-start">
                   <li className="nav-item">
-                    <a
-                      className="nav-link link-secondary px-2 px-md-3"
-                      href="#!"
-                    >
+                    <a className="nav-link link-secondary px-2" href="#!">
                       About
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a
-                      className="nav-link link-secondary px-2 px-md-3"
-                      href="#!"
-                    >
+                    <a className="nav-link link-secondary px-2" href="#!">
                       Contact
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a
-                      className="nav-link link-secondary px-2 px-md-3"
-                      href="#!"
-                    >
+                    <a className="nav-link link-secondary px-2" href="#!">
                       Advertise
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a
-                      className="nav-link link-secondary px-2 px-md-3"
-                      href="#!"
-                    >
+                    <a className="nav-link link-secondary px-2" href="#!">
                       Terms
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a
-                      className="nav-link link-secondary px-2 px-md-3"
-                      href="#!"
-                    >
+                    <a className="nav-link link-secondary px-2" href="#!">
                       Privacy
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <div className="col-xs-12 col-sm-6 col-xl-3 order-1 order-xl-2">
-                <ul className="nav justify-content-center justify-content-sm-end">
+              <div className="col-xl-3">
+                <ul className="nav justify-content-center justify-content-md-end">
                   <li className="nav-item">
-                    <Link className="nav-link link-dark px-3" to="/"></Link>
+                    <Link className="nav-link link-dark px-2 text-white" to="/">
+                      Link 1
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link link-dark px-3" to="/"></Link>
+                    <Link className="nav-link link-dark px-2 text-white" to="/">
+                      Link 2
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link link-dark px-3" to="/"></Link>
+                    <Link className="nav-link link-dark px-2 text-white" to="/">
+                      Link 3
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link link-dark px-3" to="/"></Link>
+                    <Link className="nav-link link-dark px-2 text-white" to="/">
+                      Link 4
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -538,8 +565,8 @@ export default function Main({ current_user }) {
           </div>
         </div>
 
-        <div className="bg-light py-3 py-md-5 border-top border-light-subtle">
-          <div className="container overflow-hidden">
+        <div className="bg-light py-2 py-md-3 py-xl-4 border-top border-light-subtle">
+          <div className="container">
             <div className="row">
               <div className="col">
                 <div className="footer-copyright-wrapper text-center">
