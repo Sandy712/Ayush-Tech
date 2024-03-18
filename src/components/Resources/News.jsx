@@ -10,7 +10,7 @@ const NewsComponent = () => {
 
     const fetchNews = async () => {
         try {
-            const response = await axios.get('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=28f6e8836bb34530b0c668a5a6a1d840');
+            const response = await axios.get('/cors-proxy/https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=28f6e8836bb34530b0c668a5a6a1d840');
             setArticles(response.data.articles);
         } catch (error) {
             console.error('Error fetching news:', error);
